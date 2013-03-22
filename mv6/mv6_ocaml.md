@@ -124,3 +124,11 @@ bit        0 1   7 8 9 10 31    0 1   31
                +-------------------------------+     +-------------------------------+
 bit              0 1   7 8 9 10 31    0 1   31         0 1   7 8 9 10 31    0 1   31
 ```
+
+## Le ramasse-miette (garbage collector)
+Le ramasse miette parcourt régulièrement le tas pour trouver des blocs orphelins :
+* qui ne sont plus référencés nul part
+* qui sont référencés uniquement par des blocs orphelins
+
+Il doit savoir si un mot est une valeur directe ou un pointeur : d'où l'utilisation du premier bit comme flag.  
+Il marque les blocs selon leur ancienneté : le champs `color` !!! A DETAILLER !!!

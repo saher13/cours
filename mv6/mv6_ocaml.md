@@ -58,24 +58,13 @@ Un bloc : zone contigue dans la mémoire de n + 1 mots.
   * `wosize` (22 bits) : taille n de la zone de données
 * données (n mots)
 
-Pour les valeurs des tags : `mlvalue.h`
-
-Extrait de `mlvalue.h` :
+Pour connaitre les valeurs des tags : `mlvalue.h`, dont voici un extrait :
 ```
-Structure of the header:
-
 For 16-bit and 32-bit architectures:
      +--------+-------+-----+
      | wosize | color | tag |
      +--------+-------+-----+
 bits  31    10 9     8 7   0
-
-For 64-bit architectures:
-
-     +--------+-------+-----+
-     | wosize | color | tag |
-     +--------+-------+-----+
-bits  63    10 9     8 7   0
 ```
 
 * Les constructeur constant (sans mot clé __of__) sont représentées par des entiers constants. Chaque constructeur est numéroté à partir de 0.  

@@ -48,18 +48,30 @@ Les valeurs immédiates sont donc codées sur un mot mémoire - 1 bit
 
 
 ## Représentation des autre valeurs (les blocs)
-Ces valeurs sont stockées sur le tas.  
-Les blocs sont allouées par la MV par malloc.
 
-Un bloc : zone contigue dans la mémoire de n + 1 mots.
-* en-tête (1 mot) :
+Ces valeurs sont stockées sur le tas. Les blocs sont allouées par la MV par malloc.
+
+
+### Rappel sur le tas
+Lors de la création d'un nouveau processus, l'OS lui assigne :
+
+* un espace mémoire constant pour stocker le code
+* un espace pour ses données constantes
+* un espace de `pile` extensible (mais monotone) !!! PRECISION !!!
+* de l'espace à la demande de l'utilisateur (malloc & free)
+
+La zone mémoire pointée par le retour de malloc fait partie du `tas`. Le processus est chargé de libérer cette mémoire après utilisation.
+
+### Un bloc : zone contigue dans la mémoire de n + 1 mots.
+Constitué de deux "parties" :
+* __en-tête__ (1 mot) :
   * `tag` (8 bits) : identifie le type de bloc
   * `color` (2 bits) : !!! A COMPLETER !!!
   * `wosize` (22 bits) : taille n de la zone de données
-* données (n mots)
 
-Pour connaitre les valeurs des tags : `mlvalue.h`, dont voici un extrait :
 ```
+Extrait de mlvalues.h
+
 For 16-bit and 32-bit architectures:
      +--------+-------+-----+
      | wosize | color | tag |
@@ -67,23 +79,48 @@ For 16-bit and 32-bit architectures:
 bits  31    10 9     8 7   0
 ```
 
+* __données__ (n mots)
+
+Pour connaitre les valeurs des tags : `mlvalue.h`, dont voici un extrait :
+
+### Les constructeurs
+
 * Les constructeur constant (sans mot clé __of__) sont représentées par des entiers constants. Chaque constructeur est numéroté à partir de 0.  
 Un type ne peut donc pas posseder plus de 31^2 (ou 63^2) constructeurs constants. !!! A VERIFIER !!!
 * Les constructeur paramétrés sont représentés par des blocs.
+
 ```
 type t = A | B of int | C | D of t;;
 ```
-* A : valeur immédiate 0 &rarr; [[1| 0 ]]
-* C : valeur immédiate 1 &arr; [[1| 1]]
-* B 52 : bloc de taille 1 (2 mots) &rarr; [[0| 0 | 0 | 1 ] [1| 52 ]]
-* D (D C) : deux blocs de taille 1 &rarr;
-b1 : [[0| 1 | 0 | 1 ] [0| b2 ]] b2: [[0| 1 | 0 | 1] [1| 1 ]]
 
-### Rappel sur le tas
-Lors de la création d'un nouveau processus, l'OS lui assigne :
-* un espace mémoire constant pour stocker le code
-* un espace pour ses données constantes
-* un espace de `pile` extensible (mais monotone) !!! PRECISION !!!
-* de l'espace à la demande de l'utilisateur (malloc & free)
-La zone mémoire pointée par le retour de malloc fait partie du `tas`. Le processus est chargé de libérer cette mémoire après utilisation.
+* A : valeur immédiate 0
+* C : valeur immédiate 1
 
+```
+      +-+-----+       +-+-----+
+  A:  |1|  0  |   C:  |1|  1  |
+      +-+-----+       +-+-----+
+bit    0 1  31         0 1  31
+```
+
+* B 52 : bloc de taille 1 (2 mots)
+
+```
+         +-------------------------------+
+         |+-+-----+---+-----+  +-+------+|
+  B 42:  ||0|  1  | 0 |  1  |  |1|  52  ||
+         |+-+-----+---+-----+  +-+------+|
+         +-------------------------------+
+bit        0 1   7 8 9 10 31    0 1   31
+```
+
+* D (D C) : deux blocs de taille 1
+
+```
+               +-------------------------------+     +-------------------------------+
+               |+-+-----+---+-----+  +-+------+|     |+-+-----+---+-----+  +-+------+|
+  D (D C) : b1 ||0|  1  | 0 |  1  |  |0|  b2  ||  b2 ||0|  1  | 0 |  1  |  |1|  1   ||
+               |+-+-----+---+-----+  +-+------+|     |+-+-----+---+-----+  +-+------+|
+               +-------------------------------+     +-------------------------------+
+bit              0 1   7 8 9 10 31    0 1   31         0 1   7 8 9 10 31    0 1   31
+```

@@ -28,12 +28,9 @@ Rappel : registre = un espace pouvant contenir un mot machine
 
 ## Jeu d'instruction
 Découpé en trois jeux :
-* manipulation des valeurs immédiates  
-  `int`, `char`, `bool`, `unit`
-* représentation/manipulation des données structurées
-  `'a * 'b;`, `list`, `option`, `float`, `type ...`
-* manipulation des fonctions de première classe
-  `'a -> 'b`
+* manipulation des valeurs immédiates : `int`, `char`, `bool`, `unit`
+* représentation/manipulation des données structurées : `'a * 'b;`, `list`, `option`, `float`, `type ...`
+* manipulation des fonctions de première classe : `'a -> 'b`
 
 ## Représentation des valeurs en mémoire
 OCaml représente __toute__ valeur par un mot machine. i.e. taille fixe de 32/64 bits. Le premier bit défini son utilisation :

@@ -31,7 +31,7 @@ OCaml évalue l'argument d'une fonction avant de lui passer. Cela implique l'év
 
 La représentation mémoire d'une fonction est appelée `Closure` (fermeture) : un bloc de tag 247 contenant, entre autres, l'offset (décalage) d'un saut vers le code de la fonction.
 
-Nous représenterons cette offset par un label (marquant une position absolue dans le code) bien que celui-ci soit en fait relatif à l'endroit ou on se trouve.
+Nous représenterons cet offset par un label (marquant une position absolue dans le code) bien que celui-ci soit en fait relatif à l'endroit ou on se trouve.
 
 ### Appel de fonction
 Il faut stocker :
@@ -39,9 +39,34 @@ Il faut stocker :
   * On sauve `PC` sur la pile (sous l'argument de la fonction, qui est la première case de la pile) à l'appel
   * On restaure `PC` lors du retour
 * Un environnement : une série de valeurs (définies en dehors du code de la fonction) que la fonction peut utiliser.
-  * Closure enregistre une série de labels (offset des fonctions) + les élements de l'environnement
+  * Closure enregistre :
+     * une série de labels (i. e. offset des fonctions)
+     * les élements de l'environnement
   * `env` pointe toujours sur Closure de la fonction courante
 
-Donc, Closure stocke aussi les valeurs des l'environnement
+## Optimisation des fonctions n-aires
 
-To be continued...
+!!! A COMPLETER !!!
+
+
+## Optimisation des appels terminaux (tail calls)
+
+### Problème
+Souvent, l'appel à une fonction est la derniere instruction avant de rendre la main.
+
+```
+let f x = x + 1
+let g x = f x
+```
+
+Supposons que nous nous trouvions a executer g 0. On va :
+1. Sauvegarder `PC1`, `env1` et `extra_args1` avant l'appel à g.
+2. Sauvegarder `PC2`, `env2` et `extra_args2` avant l'appel à f.
+3. Mettre le resultat de f dans `A`
+4. Restaurer `PC2, `env2` et `extra_args2`
+5. Restaurer `PC1, `env1` et `extra_args1`
+
+On perd du temps et de l'espace à sauvegarder/restaurer des informations qui ne nous servent pas. `PC2`, `env2` et `extra_args2` sauvegardés pour ensuite etre restaurés alors qu'ils seront de suite éffacés par la restauration de `PC1, `env1` et `extra_args1`.
+
+### Optimisation de ocamlrun
+Les appels terminaux vont sauter les étapes 2 et 4. Celà est très important pour les fonctions recursives. Une fonction récursive ou dont tous les appels sont terminaux s'effectuera en pile constante (comme une boucle). On peut même du coup parler de fonction itérative. C'est un détails important qui peut éviter le problème du _stackoverflow_.

@@ -29,7 +29,7 @@ OCaml évalue l'argument d'une fonction avant de lui passer. Cela implique l'év
 
 ## Sauvegarde et restauration lors des appels/retours
 
-La représentation mémoire d'une fonction est appelée `Closure` (fermeture) : un bloc de tag 247 contenant, entre autres, l'offset (décalage) d'un saut vers le code de la fonction.
+La représentation mémoire d'une fonction est appelée __Closure__ (fermeture) : un bloc de tag 247 contenant, entre autres, l'offset (décalage) d'un saut vers le code de la fonction.
 
 Nous représenterons cet offset par un label (marquant une position absolue dans le code) bien que celui-ci soit en fait relatif à l'endroit ou on se trouve.
 
@@ -43,6 +43,17 @@ Il faut stocker :
      * une série de labels (i. e. offset des fonctions)
      * les élements de l'environnement
   * `env` pointe toujours sur Closure de la fonction courante
+
+### Closure d'une fonction
+Un bloc de tag `247` et de taille n + m (+ 1) :
+* Les n premiers champs sont des labels des fonctions (il peut en avoir plusieurs lors d'une définition récursive mutuelle, sinon un seul label)
+* Les m deniers forment l'environement
+
+Une définition récursive mutuelle est de la forme :
+```
+let rec f x = ... f ... g ... 
+and g y = ... f ... g ...
+```
 
 ## Optimisation des fonctions n-aires
 

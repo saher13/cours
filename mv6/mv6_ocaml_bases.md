@@ -46,10 +46,9 @@ Les valeurs immédiates sont donc codées sur un mot mémoire - 1 bit
 
 ### Gestion de la pile
 
-
 ## Représentation des autre valeurs (les blocs)
 
-Ces valeurs sont stockées sur le tas. Les blocs sont allouées par la MV par malloc.
+Ces valeurs sont stockées sur le __tas__. Les blocs sont allouées par la MV par malloc.
 
 
 ### Rappel sur le tas
@@ -124,6 +123,37 @@ bit        0 1   7 8 9 10 31    0 1   31
                +-------------------------------+     +-------------------------------+
 bit              0 1   7 8 9 10 31    0 1   31         0 1   7 8 9 10 31    0 1   31
 ```
+
+### Remarque
+* Tableaux et n-uplets :  
+  [|1; 2; 3; 4|] et (1, 2, 3, 4) auront la même représentation mémoire : bloc de taille 4 (4 + 1 en fait), de tag 254  suivi de 4 valeurs immédiates.
+```
+   +-------------------------------------------------------------------+
+   |+-+-----+---+-----+  +-+------+  +-+------+  +-+------+  +-+------+|
+   ||0| 254 | 0 |  4  |  |1|   1  |  |1|   2  |  |1|   3  |  |0|   4  ||  
+   |+-+-----+---+-----+  +-+------+  +-+------+  +-+------+  +-+------+|
+   +-------------------------------------------------------------------+
+bit  0 1   7 8 9 10 31    0 1   31    0 1   31    0 1   31    0 1   31
+```
+!!! CONTRADICTION SUR LE TAG !!!
+
+* Chaines de caractères :  
+  __ocamlrun ne représente pas les `string` comme il représenterai un tableau de `char`__. Et heureusement, puisque rappelons qu'un char prend la place d'un mot mémoire dans la MV ocamlrun. Voici la représentation du mot "bibib".
+```
+   +-------------------------------------------------------------------------+
+   |+-+-----+---+-----+  +-----+-----+-----+-----+  +-----+-----+-----+-----+|
+   ||0| 252 | 0 |  2  |  | 'b' | 'i' | 'b' | 'i' |  | 'b' | '\0'| '\1'| '\2'||
+   |+-+-----+---+-----+  +-----+-----+-----+-----+  +-----+-----+-----+-----+|
+   +-------------------------------------------------------------------------+
+bit  0 1   7 8 9 10 31    0   7 8  15 16 23 24 31    0   7 8  15 16 23 24 31
+```
+On notera
+  * L'absence du premier bit de signature des mots de données.
+  * L'ajout des caractères '\1' et '\2' à la fin du mot :
+  astuce permettant de savoir combien de bytes sont à enlever aux mots mémoire pour obtenir la longueur de la chaine.
+* Les listes :  
+  `type 'a  list = Nil | Cons of 'a * 'a list`
+
 
 ## Le ramasse-miette (garbage collector)
 Le ramasse miette parcourt régulièrement le tas pour trouver des blocs orphelins :

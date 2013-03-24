@@ -14,7 +14,7 @@ http://cadmium.x9c.fr/distrib/caml-formats.pdf
 # La machine virtuelle ocamlrun
 Elle est écrite en C et boucle sur le cycle `fetch-decode-execute`
 Voir le fichier `interp.c`  
-Un execuble produit avec `ocamlc` commencera par `#!/usr/bin/ocaml`
+Un executable produit avec `ocamlc` commencera par `#!/usr/bin/ocaml`
 
 ## Etat de la machine constitué par :
 * un programme : liste de bytecode

@@ -3,6 +3,21 @@
 ## Récuperation de l'adresse de l'hote à atteindre
 
 ```c
+struct hostent {
+  char *h_name;
+    /* nom officiel */
+  char **h_aliases;
+    /* tableau des surnoms */
+  int *h_addrtype;
+    /* type de l'adresse */
+  int h_length;
+    /* longueur de l'adresse */
+  char **h_addr_list;
+    /* tableau d'adresses finissant par NULL */
+};
+```
+
+```c
 struct hostent *gethostbyname(char *hostname)
 ```
 
@@ -35,10 +50,22 @@ if ((sock = socket(PF_INET, SOCK_STREAM, 0)) == -1) {
 }
 ```
 
-* création d'une `sockaddr_in`
-* definition de `addr.sin_family` avec `AF_INET`
-* définition de `addr.sin_port` avec `htons(PORT)` pour convertir la représentation locale en représentation sur le réseau.
-* copie de l'adresse (d'une adresse) de l'hôte que l'on veut atteindre
+## Connection au serveur
+
+```c
+struct
+```
+
+
+* `addr.sin_family`
+  * `AF_INET`
+* `addr.sin_port`
+  * `htons(PORT)` convertion du port de l'endianess locale à l'endianess réseau.
+* `hent->haddr_list[0]` copie de d'une adresse (ici de la première adresse connue) de l'hôte que l'on veut atteindre
+* 
+
+On utilise une `struct sockaddr_in` pour relier notre socket à une socket disponible à cette adresse.
+
 ```c
 struct sockaddr_in addr;
 addr.sin_family = AF_INET;

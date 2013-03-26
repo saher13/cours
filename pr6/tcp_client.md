@@ -51,20 +51,39 @@ if ((sock = socket(PF_INET, SOCK_STREAM, 0)) == -1) {
 ```
 
 ## Connection au serveur
-
 ```c
-struct
+int connect(int s, struct sockaddr *addr, int addrlen);
+```
+* `int s` : socket à connecter
+* `struct sockaddr *addr` : adresse de l'hôte a joindre
+* `int addrlen` : taille de l'adresse de l'hôte
+
+La fonction `connect()` utilise une `struct sockaddr`
+```
+struct sockaddr {
+  unsigned char sa_len;    /* longueur de l'adresse */
+  unsigned char sa_family; /* famille de protocole */
+  char sa_data[14];        /* adresse complète */
+}
 ```
 
+Pour les sockets IPv4, on castera une `struct sockadrr_in`
+```c
+struct sockaddr_in {
+  short            sin_family; /* famille de protocol */
+  unsigned short   sin_port;   /* numero de port */
+  struct in_addr   sin_addr;
+  char             sin_zero[8];
 
-* `addr.sin_family`
-  * `AF_INET`
-* `addr.sin_port`
-  * `htons(PORT)` convertion du port de l'endianess locale à l'endianess réseau.
-* `hent->haddr_list[0]` copie de d'une adresse (ici de la première adresse connue) de l'hôte que l'on veut atteindre
-* 
+};
+```
+```c
+struct in_addr {
+  unsigned long s_addr;          // load with inet_pton()
+};
+```
 
-On utilise une `struct sockaddr_in` pour relier notre socket à une socket disponible à cette adresse.
+On défini une `struct sockaddr_in` pour représente l'adresse de la socket à joindre.
 
 ```c
 struct sockaddr_in addr;
@@ -72,8 +91,13 @@ addr.sin_family = AF_INET;
 addr.sin_port = htons(PORT);
 memcpy(&(addr.sin_addr.s_addr), hent->haddr_list[0], hent->h_length);
 ```
+* `addr.sin_family`
+  * `AF_INET`
+* `addr.sin_port`
+  * `htons(PORT)` convertion du port de l'endianess locale à l'endianess réseau.
+* `hent->haddr_list[0]` copie de d'une adresse (ici de la première adresse connue) de l'hôte que l'on veut atteindre
+* 
 
-On utilise cette sockaddr_in pour connecter notre socket
 ```c
 if(connect(sock, (struct sockaddr*)&addr, sizeof(addr)) == -1) {
   /* traitement de l'erreur */
@@ -103,6 +127,6 @@ if(send(sock, buff, 256, 0) == -1) {
 
 (Ne pas oublier de fermer la socket (et libérer mémoire allouée)).
 
-```
-!!! PARLER DE BIND ? !!
-```
+## Remarque
+
+Un client ne sera pas obligé d'utiliser `bind()`. En effet, quand on ne fait pas cet appel, c'est le système qui se chargera de choisir l'adresse et le port à écouter. Quand on se connect à une socket du serveur, alors le serveur connaitra cette addresse et ce port.

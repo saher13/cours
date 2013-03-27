@@ -25,7 +25,8 @@ p(x) est une formule, &forall; x p(x) est sa cloture universelle.
 &not;p(x) &or; p(x) est valide.
 
 ### Slide 28
-&forall; x &exist; p(x,y) &#8877; &exist; y &forall, x p(x,y)
+&forall; x &exist; p(x,y) &#8877; &exist; y &forall;
+ x p(x,y)
 Interpretation I :
 * D = {0, 1}
 * I(p) = {(0, 0), (1, 1)}
@@ -52,9 +53,9 @@ I rend (3) VRAI et (4) FAUX, (3) &#8877; (4)
 &exist; x (A &and; B) &#8872; &exist; x A &and; &exist; x B
 
 Supposons [&exist; x (A &and; B)]I,&sigma; = VRAI pour I et &sigma;  
-&rArr; &Sigma;(d &isin; D)[A &and; B]I,&isgma;[x := d] = VRAI  
-&rArr; &Sigma;(d &isin; D)[A]I,&isgma;[x := d] = VRAI &and; &Sigma;(d &isin; D)[B]I,&isgma;[x := d] = VRAI  
-&rArr; [&exist; x A]I,&isgma; = VRAI &and; [&exist; x B]I,&isgma; = VRAI  
+&rArr; &Sigma;(d &isin; D)[A &and; B]I,&sigma;[x := d] = VRAI  
+&rArr; &Sigma;(d &isin; D)[A]I,&sigma;[x := d] = VRAI &and; &Sigma;(d &isin; D)[B]I,&sigma;[x := d] = VRAI  
+&rArr; [&exist; x A]I,&sigma; = VRAI &and; [&exist; x B]I,&sigma; = VRAI  
 
 
 ### Slide 28
@@ -72,87 +73,87 @@ interpretation I
 ### Slide 34
 
 * OK :  
-  &Delta; &sequent; &forall; x &exist; y p(x, y)  
-  ---  
-  &Delta; &sequent; &exist; y p(a, y)
+  &Delta; &#8870; &forall; x &exist; y p(x, y)  
+  - - -  
+  &Delta; &#8870; &exist; y p(a, y)
 * KO :  
-  &Delta; &sequent; &forall; x &exist; y p(x, y)  
-  ---  
-  &Delta; &sequent; &exist; y p(y, y)
+  &Delta; &#8870; &forall; x &exist; y p(x, y)  
+  - - -  
+  &Delta; &#8870; &exist; y p(y, y)
 
 ### Slide 35
 
-p(a) &sequent; p(a)   AXIOME  
---- (&exist; i)  
-p(a) &sequent; &exist; x p(x)  
----  
-&sequent; p(a) &rarr; &exist; x p(x)
+p(a) &#8870; p(a)   AXIOME  
+- - - (&exist; i)  
+p(a) &#8870; &exist; x p(x)  
+- - -  
+&#8870; p(a) &rarr; &exist; x p(x)
 
 
-p(a) &or; p(b) &sequent; p(a)   ECHEC (pareil avec b à la place de a)
----  
-p(a) &or; p(b) &sequent; &exist; x p(x)
+p(a) &or; p(b) &#8870; p(a)   ECHEC (pareil avec b à la place de a)
+- - -  
+p(a) &or; p(b) &#8870; &exist; x p(x)
 
 AXIOME    AXIOME    AXIOME
----  
-AXIOME   p(a) &or; p(b), p(a) &sequent; p(a)    p(a) &or; p(b), p(b) &sequent; p(b)
----  
-p(a) &or; p(b) &sequent; p(a) &or; p(b)     p(a) &or; p(b), p(a) &sequent; &exist; x p(x)    p(a) &or; p(b), p(b) &sequent; &exist; x p(x)
----  (&or;e)
-p(a) &or; p(b) &sequent; &exist; x p(x)
+- - -  
+AXIOME   p(a) &or; p(b), p(a) &#8870; p(a)    p(a) &or; p(b), p(b) &#8870; p(b)
+- - -  
+p(a) &or; p(b) &#8870; p(a) &or; p(b)     p(a) &or; p(b), p(a) &#8870; &exist; x p(x)    p(a) &or; p(b), p(b) &#8870; &exist; x p(x)
+- - -  (&or;e)
+p(a) &or; p(b) &#8870; &exist; x p(x)
 
 
 ### Exemple
 
 ### Preuve facile :  
-&forall; x p(x) &sequent; &forall; x p(x)
---- (&forall;x e){x &larr; x}  
-&forall; x p(x) &sequent; x p(x)
---- (&exist;x i)  
-&forall; x p(x) &sequent; &exist; x p(x)
+&forall; x p(x) &#8870; &forall; x p(x)  
+- - - (&forall;x e){x &larr; x}  
+&forall; x p(x) &#8870; x p(x)  
+- - - (&exist;x i)  
+&forall; x p(x) &#8870; &exist; x p(x)
 
 ### Preuve FAUSSE :
-AXIOME    AXIOME
----  
-&exist; x p(x) &sequent; &exist; x p(x)     &exist; x p(x), p(x) &sequent; p(x)
---- (&exist;x i)
-&exist; x p(x) &sequent; x p(x)   
---- (&forall;x i)  
-&exist; x p(x) &sequent; &forall; x p(x) 
+AXIOME    AXIOME  
+- - -  
+&exist; x p(x) &#8870; &exist; x p(x)     &exist; x p(x), p(x) &#8870; p(x)  
+- - - (&exist;x i)  
+&exist; x p(x) &#8870; x p(x)   
+- - - (&forall;x i)  
+&exist; x p(x) &#8870; &forall; x p(x) 
 
 Ici, (&exist;x i) ne doit pas être appliquée car x EST LIBRE
 
 ###
 
 
-&exist; y &forall; x A &sequent; &exist; y &forall; x A    &exist; y &forall; x A, &forall; x A &sequent; A    ECHEC car y libre (à droite)
---- (&exist; x e)  
-&exist; y &forall; x A &sequent; A
---- (&exist; x i)  
-&exist; y &forall; x A &sequent; &exist; y A
---- (&forall; x i)  
-&exist; y &forall; x A &sequent; &forall; x &exist; y A
+&exist; y &forall; x A &#8870; &exist; y &forall; x A    &exist; y &forall; x A, &forall; x A &#8870; A    ECHEC car y libre (à droite)  
+- - - (&exist; x e)  
+&exist; y &forall; x A &#8870; A  
+- - - (&exist; x i)  
+&exist; y &forall; x A &#8870; &exist; y A  
+- - - (&forall; x i)  
+&exist; y &forall; x A &#8870; &forall; x &exist; y A
 
 
 
-AXIOME    &exist; y &forall; x A, &forall; x A &sequent; &forall; A  
---- AXIOME     (&forall;x e)  
-AXIOME    &exist; y &forall; x A, &forall; x A &sequent; A  
----  AXIOME (&exist;x i)  
-&exist; y &forall; x A &sequent; &exist; y &forall; x A    &exist; y &forall; x A, &forall; x A &sequent;  &exist; y A  
---- (&exist; x e)  
-&exist; y &forall; x A &sequent; &exist; y A
---- (&forall; x i)  
-&exist; y &forall; x A &sequent; &forall; x &exist; y A
+AXIOME    &exist; y &forall; x A, &forall; x A &#8870; &forall; A  
+- - - AXIOME     (&forall;x e)  
+AXIOME    &exist; y &forall; x A, &forall; x A &#8870; A  
+- - -  AXIOME (&exist;x i)  
+&exist; y &forall; x A &#8870; &exist; y &forall; x A    &exist; y &forall; x A, &forall; x A &#8870;  &exist; y A  
+- - - (&exist; x e)  
+&exist; y &forall; x A &#8870; &exist; y A  
+- - - (&forall; x i)  
+&exist; y &forall; x A &#8870; &forall; x &exist; y A
 
 
 
-AXIOME    &exist; x (A &and; B), (A &and; B) &sequent; A &and; B (...)  
---- AXIOME (&and; e) (...)  
-AXIOME     &exist; x (A &and; B), (A &and; B) &sequent; A  (...)
---- AXIOME (&exist;x i) (...)  
-&exist; x (A &and; B) &sequent; &exist; x (A &and; B)    &exist; x (A &and; B), (A &and; B) &sequent; &exist; x A    (...)  
---- (&exist;x e) (...)  
-&exist; x (A &and; B) &sequent; &exist; x A    &exist; x (A &and; B) &sequent; &exist;x B  
---- (&and; i)  
-&exist; x (A &and; B) &sequent; &exist; x A &and; &exist;x B
+AXIOME    &exist; x (A &and; B), (A &and; B) &#8870; A &and; B (...)  
+- - - AXIOME (&and; e) (...)  
+AXIOME     &exist; x (A &and; B), (A &and; B) &#8870; A  (...)
+- - - AXIOME (&exist;x i) (...)  
+&exist; x (A &and; B) &#8870; &exist; x (A &and; B)    &exist; x (A &and; B), (A &and; B) &#8870; &exist; x A    (...)  
+- - - (&exist;x e) (...)  
+&exist; x (A &and; B) &#8870; &exist; x A    &exist; x (A &and; B) &#8870; &exist;x B  
+- - - (&and; i)  
+&exist; x (A &and; B) &#8870; &exist; x A &and; &exist;x B

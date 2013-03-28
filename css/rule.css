@@ -1,0 +1,20 @@
+rule {
+    diplay: block;
+    margin: 2em;
+    border: dotted 1px red;
+}
+
+rule + div {
+}
+
+rule, div {
+    text-align: center;
+    width: 100%;
+}
+
+top {
+}
+
+bottom {
+    border-top: solid 1px black;
+}

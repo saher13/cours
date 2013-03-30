@@ -1,19 +1,15 @@
 rule {
-  margin-bottom:0px;
-  padding-left: 1em;
-  padding-right: 1em;
+  padding: 0em 2em;
   display: block;
   float: left;
 }
 
 top {
-  display: block
-  padding: 1em 1em;
 }
 
 bottom {
   display: block;
   border-top: solid 1px black;
-  text-align:center;
+  text-align: center;
   clear: left;
 }

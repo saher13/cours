@@ -1,20 +1,21 @@
 rule {
-    diplay: block;
-    margin: 2em;
-    border: dotted 1px red;
-}
-
-rule + div {
-}
-
-rule, div {
-    text-align: center;
-    width: 100%;
+  margin-bottom:0px;
+  border: solid 1px red;
+  padding-left: 1em;
+  padding-right: 1em;
+  display: block;
+  float: left;
 }
 
 top {
+  display: block
+  padding: 1em 1em;
+  clear:left;
 }
 
 bottom {
-    border-top: solid 1px black;
+  display: block;
+  border-top: solid 1px black;
+  text-align:center;
+  clear: left;
 }

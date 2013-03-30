@@ -1,6 +1,5 @@
 rule {
   margin-bottom:0px;
-  border: solid 1px red;
   padding-left: 1em;
   padding-right: 1em;
   display: block;
@@ -10,7 +9,6 @@ rule {
 top {
   display: block
   padding: 1em 1em;
-  clear:left;
 }
 
 bottom {

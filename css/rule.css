@@ -1,15 +1,17 @@
+top, rule, bottom {display:block}
+
 rule {
   padding: 0em 2em;
-  display: block;
-  float: left;
+  display: inline-block;
+  text-align: center;
 }
 
 top {
+    vertical-align:bottom;
 }
 
 bottom {
   display: block;
   border-top: solid 1px black;
-  text-align: center;
   clear: left;
 }

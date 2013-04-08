@@ -1,3 +1,4 @@
+<link href="../github_md.css" rel="stylesheet"></link>
 ### Rappels
 * (1) : p(x) : valuation &sigma; est important, valeur formule dépend de &sigma;
 * (2) : &forall; x p(x) : valuation  &sigma; pas prise en compte (variable liée)
@@ -146,8 +147,6 @@ AXIOME    &exist; y &forall; x A, &forall; x A &#8870; A
 - - - (&forall; x i)  
 &exist; y &forall; x A &#8870; &forall; x &exist; y A
 
-
-
 AXIOME    &exist; x (A &and; B), (A &and; B) &#8870; A &and; B (...)  
 - - - AXIOME (&and; e) (...)  
 AXIOME     &exist; x (A &and; B), (A &and; B) &#8870; A  (...)
@@ -157,3 +156,43 @@ AXIOME     &exist; x (A &and; B), (A &and; B) &#8870; A  (...)
 &exist; x (A &and; B) &#8870; &exist; x A    &exist; x (A &and; B) &#8870; &exist;x B  
 - - - (&and; i)  
 &exist; x (A &and; B) &#8870; &exist; x A &and; &exist;x B
+
+<r>
+  <t>
+    <r>
+      <t>
+        <r>
+      	  <t>
+	    
+      	  </t>
+      	  <b>
+	    &exist; x (A &and; B) &#8870; &exist; x (A &and; B)
+	  </b>
+    	</r> 
+        <r>
+      	  <t>
+	    <r>
+	      <t>
+	        &exist; x (A &and; B), (A &and; B) &#8870; A &and; B
+	      </t>
+	      <b>
+	      &exist; x (A &and; B), (A &and; B) &#8870; A
+	      </b>
+	    </r>
+      	  </t>
+      	  <b>
+	    &exist; x (A &and; B), (A &and; B) &#8870; &exist; x A
+	  </b>
+    	</r>      
+      </t>
+      <b>
+        &exist; x (A &and; B) &#8870; &exist; x A
+      </b>
+    </r>
+    <r>
+      <t>(...)</t>
+      <b>&exist; x (A &and; B) &#8870; &exist;x B</b>
+    </r>
+  </t>
+  <b>&exist; x (A &and; B) &#8870; &exist; x A &and; &exist;x B</b>
+</r>

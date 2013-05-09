@@ -1,6 +1,6 @@
 # API C - Création d'un client
 
-## Récuperation de l'adresse de l'hote à atteindre
+## Récuperation de l'adresse de l'hôte à atteindre
 
 ```c
 struct hostent {
@@ -55,7 +55,7 @@ if ((sock = socket(PF_INET, SOCK_STREAM, 0)) == -1) {
 int connect(int s, struct sockaddr *addr, int addrlen);
 ```
 * `int s` : socket à connecter
-* `struct sockaddr *addr` : adresse de l'hôte a joindre
+* `struct sockaddr *addr` : adresse de l'hôte à joindre
 * `int addrlen` : taille de l'adresse de l'hôte
 
 La fonction `connect()` utilise une `struct sockaddr`
@@ -83,7 +83,7 @@ struct in_addr {
 };
 ```
 
-On défini une `struct sockaddr_in` pour représente l'adresse de la socket à joindre.
+On définit une `struct sockaddr_in` pour représenter l'adresse de la socket à joindre.
 
 ```c
 struct sockaddr_in addr;
@@ -94,8 +94,8 @@ memcpy(&(addr.sin_addr.s_addr), hent->haddr_list[0], hent->h_length);
 * `addr.sin_family`
   * `AF_INET`
 * `addr.sin_port`
-  * `htons(PORT)` convertion du port de l'endianess locale à l'endianess réseau.
-* `hent->haddr_list[0]` copie de d'une adresse (ici de la première adresse connue) de l'hôte que l'on veut atteindre
+  * `htons(PORT)` conversion du port de l'endianess locale à l'endianess réseau.
+* `hent->haddr_list[0]` copie d'une adresse (ici la première adresse connue) de l'hôte que l'on veut atteindre
 * 
 
 ```c
@@ -129,4 +129,4 @@ if(send(sock, buff, 256, 0) == -1) {
 
 ## Remarque
 
-Un client ne sera pas obligé d'utiliser `bind()`. En effet, quand on ne fait pas cet appel, c'est le système qui se chargera de choisir l'adresse et le port à écouter. Quand on se connect à une socket du serveur, alors le serveur connaitra cette addresse et ce port.
+Un client ne sera pas obligé d'utiliser `bind()`. En effet, quand on ne fait pas cet appel, c'est le système qui se chargera de choisir l'adresse et le port à écouter. Quand on se connecte à une socket du serveur, alors le serveur connaitra cette addresse et ce port.

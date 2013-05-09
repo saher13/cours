@@ -74,8 +74,18 @@ if(bind(sock, (struct sockaddr*)&addr, sizeof(addr)) == -1) {
   /* traitement de l'erreur */
 }
 ```
+En TCP, on doit attendre la connexion de clients avec 
+```c
+int sockclient;
+int l;
+struct sockaddr_in addrclient; 
+if( (sockclient = accept(sock, (struct sockaddr *) &addrclient, &l) ) == -1){
+  /* traitement de l'erreur */
+}
+```
+`accept` est bloquant, il va attendre jusqu'à ce qu'un client se connecte. Ensuite on écrit/lit comme avec un pipe sur `sockclient`.
 
-Pour recevoir un message on utilise `recvfrom` avec un buffer.
+En UDP, Pour recevoir un message on utilise `recvfrom` avec un buffer.
 ```c
 buff = char[256];
 int nrec;

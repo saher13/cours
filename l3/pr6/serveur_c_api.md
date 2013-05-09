@@ -55,7 +55,7 @@ struct in_addr {
 };
 ```
 
-On défini une `struct sockaddr_in` pour représente l'adresse de la socket à joindre.
+On définit une `struct sockaddr_in` pour représenter l'adresse de la socket à joindre.
 
 ```c
 struct sockaddr_in addr;
@@ -66,7 +66,7 @@ addr.sin_addr.s_addr = htonl(INADDR_ANY);
 * `addr.sin_family`
   * `AF_INET`
 * `addr.sin_port`
-  * `htons(PORT)` convertion du port de l'endianess locale à l'endianess réseau.
+  * `htons(PORT)` conversion du port de l'endianess locale à l'endianess réseau.
 * `INADDR_ANY` attache la socket à toutes les interfaces locale. (details ?)
 
 ```c

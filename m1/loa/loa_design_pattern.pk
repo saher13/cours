@@ -1,0 +1,52 @@
+# Design patterns
+
+3 main famillies:
+* Creation/construction
+* Structure
+  ** Adapter: convert an interface into another one
+* Comportement: callback, iterator, ...
+
+## Creation: factory method
+
+Allow to separate genral use of a family and implentation details.
+
+Type != class: type = interface, class = instance.
+We want to use interfaces. Problem: we need to use ```new``` (impossible with abstract classes).
+
+Factory method will choose what ```new``` to call, but user will never know about real class of object he is handling.
+
+```plantuml
+@startuml
+interface GenericProduct
+interface GenericFactory {
+    + creationMethod()
+}
+
+class ProductXFactory {
+    + creationMethod()
+}
+class ProductX
+
+ProductX --|> GenericProduct
+ProductXFactory --|> GenericFactory
+ProductXFactory ..> ProductX : instanciate
+@enduml
+```
+
+`Missing example`
+
+## Singleton
+
+```plantuml
+@startuml
+class Singleton {
+    - instance : static Singleton
+    - Singleton()
+    - Singleton(Singleton &s)
+    - operator=(Singleton &s) : void
+    - ~Singleton()
+    + getInstance : Singleton
+}
+@enduml
+```
+                

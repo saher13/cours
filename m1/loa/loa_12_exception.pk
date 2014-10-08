@@ -1,0 +1,87 @@
+# Exceptions
+
+Be careful with catches order: 
+
+```
+
+class E ();
+
+class E2 : public E ();
+
+try {
+    ...
+} catch (E e) {
+    ...
+} catch (E2 e) {
+    ...
+}
+
+try {
+    ...
+} catch (E2 e) {
+    ...
+} catch (E e) {
+    ...
+} 
+```
+
+### Defaut catch
+
+```catch (...)```
+
+### Re-trigger
+
+You can an exception to complete contained information and trigger this improved exception using ```throw;```
+
+```
+try {
+    i++;
+    ...
+} catch (E err) {
+    ...
+    err.addInfo(i);
+    throw;
+}
+```
+
+### Ressource Allocation Is Initialization
+
+What about ressources not freed on exception raising?
+
+* Any local variable is destructed at bloc exit.
+* Variable destruction calls destructor.
+
+We use these properties to automate allocation and destruction of ressources (creating a class to do that if needed).
+
+### Function-try-block
+
+```
+class C {
+private:
+    A a;
+    B b;
+public:
+    C(int x, int y) try : a (x), b(y) {
+    } catch (Type e) {
+        
+    }
+};
+```
+
+```
+void fun(int i) try {
+    ...
+} catch (E e) {
+    ...
+}
+```
+
+### Exception specification
+
+Not mandatory.
+```
+type name(...) throw (type1 [,...]);
+```
+If you raise an undocumented exception, ```std::unexpected()``` is called.
+
+Empty throw list means: never raise exception. No throw means: undocumented.

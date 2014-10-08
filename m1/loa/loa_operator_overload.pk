@@ -1,0 +1,165 @@
+# C++
+
+## Operator overload
+
+### Can be overloaded
+
+### Can not be overloaded
+
+### As an object method
+
+```o1 + o2 = o1.operator+(o2)```
+
+Manage type as you wish.
+``` std::string Nombre::operator+(const Nombre &n) const```
+
+Second argument is given by reference for optimization, but as const to prevent unwanted behavior.
+
+Same idea for the object on which the function is called.
+
+#### Unary operators
+```
+Prefix:
+a.operator~()
+a.operator--()
+
+Postfix:
+a.operator--(int)
+Parameter is a dummy variable, only here to differentiate o-- and --o. DO NOT USE IT (not portable)
+```
+
+#### ```[]``` overloading example
+```
+/* Return a lvalue, can be modified */
+Element &operator[](int) const;
+/* Return a rvalue, can NOT be modified */
+Element operator[](int) const;
+```
+
+#### ```()``` overlaoding example
+
+```
+class Converter {
+private:
+    double taux;
+public:
+    Converter(double tx) { tqux = tx;};
+    double operator()(double v) const {
+        return v*taux;
+    };
+};
+
+
+void main() {
+    Convertisseur eurodollar(1.4306);
+    cout << "15 -> " << eurodollar(15) < endl;
+}
+```
+
+#### cast overload
+
+```
+(int)3.14 /* C style */
+int(3.14) /* C++ "functionnal" style */
+```
+
+```operator double();```
+
+Note: Constructor can be a provide a cast function.
+
+```
+class Fraction {
+private:
+    int num, den;
+public:
+    Fraction(int n, int d) {
+        num = n;
+        den = d;
+    };
+    Fraction(int n) {
+        num = n;
+        den = 1;
+    };
+}
+
+int main() {
+Fraction f(25, 12);
+f = 2; /* Cast with constructor */
+}
+
+```
+
+### As an ordinary function
+
+Defining operator as an object need to modify this object class code.
+
+```
+Number operator+(const Number &n1, const Number &n2) {
+    return Number(n1.getValue() + n2.getValue());
+}
+```
+Note: we did not define ```Number::operator(...)+```, but ```operator+(...)```
+
+#### Example with ```<<``` overload
+
+Sometime, you can not use the definition as a method.
+
+```
+cout.operator<<(m); /* Need to ;odify cout's class (impossible) */
+operator<<(cout, m);
+```
+
+```
+ostream &operator<<(ostream &os, const Number &n) {
+    os << n.getValue();
+}
+```
+
+Note: getValue() declaration should be ```int getValue() const``` to be applied to ```const n``` 
+
+Note: Sometimes, you can not use definition as `normal` function (e.g. ```operator()``` or ```operator=```)
+
+### Some `special` redifinition
+
+* overload ```new``` and ```delete```:
+** pre-allocated objects
+** singleton
+
+### Overload trap
+
+Shall respect commutativity, symmetry, ... ( a + b != b + a ?), and overload only if semantic exists.
+
+### The ```=``` case
+
+Be aware of auto-affect problem. If affectation operator free ressources before copying: could delete data, and return uninitialized data.
+
+```a = b = c``` is ```a = (b = c)```: ```operator=``` should return object of same type.
+
+### The ```explicit``` keyword
+
+```
+class Foo {
+public:
+    explicit Foo(int v) {};
+};
+
+int main() {
+    Foo f(1);
+    f = 42; // Error
+    c = Foo(42); // OK
+}
+```
+
+### Classe canonique
+
+```
+class Canon {
+public:
+    Canon(); /* Allow array creation */
+    Canon(const Canon &);
+    virtual ~Canon();
+    Canon &operator=(const Canon &);
+
+friend ostream &operator<<(ostream &, const Canon &);
+};
+```

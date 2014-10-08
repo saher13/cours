@@ -1,0 +1,152 @@
+# Templates
+
+```
+template < class Element > class Collection {
+private:
+    Element **list;
+    int nbElement;
+public:
+    void add(const Element &e) {
+        list[nbElement++] = &e;
+    }
+    void &at(int i) const {
+        return *list[i];
+    }
+};
+
+Collection <int> intList;
+Collection <float> floatList;
+
+```
+
+## Specialization
+
+We want to store a boolean pair.
+```
+template < class E > class Pair {
+private:
+    E e1, e2;
+public:
+   E fst() { return e1; }
+   E snd() { return e2; }
+};
+```
+
+```
+template <> class Pair<bool> {
+private:
+   int stock;
+public:
+   bool fst() { return stock & 2; }
+   bool snd() { return stock & 1; }
+};
+```
+Specializing a template, we need to redefing ``EVERYTHING`` (but no need for respect first template signature).
+
+Template for any type but ```bool``` will use first template declaration, but not ```bool```.
+
+## Partial specialization
+
+```
+template <class T> class Pair {
+private:
+   T c1, c2;
+public:
+   T bigger() { return c1 < c2 ? c1 : c2; }
+};
+
+template <class T> class Pair<T *> {
+private:
+   T *c1, *c2;
+public:
+   T bigger() { return *c1 < *c2 ? *c1 : *c2; }
+};
+```
+
+## Default value
+
+```
+template <class T=int> class Pair {
+    ...
+};
+
+Pair<> pair; // int pair
+```
+
+Declaration ``AND`` defintion in header (code is need by compiler).
+
+Each instanciation can produce a different error.
+
+## Main drawback
+
+Each instantiation create a new type (more code)
+
+## Function templates
+
+Work with abstract data.
+```
+template <class T> T max(T &t1,  T &t2) {
+    return t1 > t2 ? t1 : t2;
+}
+```
+
+You may want to force compiler:
+
+```
+max<int>(4, 5.2f);
+```
+
+You can overload a function template.
+
+```
+template <class T> T add(const T *t1,  const T *t2) {
+    return *t1 + *t2;
+};
+```
+We can also specialize
+
+```
+template <> char *add<char>(const char *c1,  const char *c2) {
+    ...
+};
+```
+
+
+```
+template <class T> class A {
+private:
+    T *e;
+public:
+    template <class X>friend ostream &operator<< <>(ostream &os, const A<X> &a);
+};
+
+/* we are outside class: should be friend */
+template <class X>friend ostream &operator<< <>(ostream &os, const A<X> &a) {
+    os << *(a.e); return os;
+}
+
+template <class X> ostream &operator<< (ostream &os, const A<X> &a)) {
+}
+
+class B{};
+
+int main() {
+    int i = 12;
+    A<int> a(&i);
+    cout << a << endl; // OK
+
+    B j;
+    A<B> b(&j);
+    cout << b << endl; // Error
+}
+```
+
+``class T has to provide an ouput stream function``
+
+```
+ostream &operator<<(ostream &os, const B &b) {
+    return os << "hello" ;
+}
+```
+
+Main drawback of this method: no link between ```class T``` and ```class X```. Problem: we could define A<int> and instanciate function operator<< with other type. Being friend with all templates, it `could` mess in some cases (missing example).

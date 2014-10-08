@@ -1,0 +1,46 @@
+<html>
+  <head>
+    <META http-equiv="Content-Style-Type" content="text/css">
+    <LINK href="rule.css" rel="stylesheet" type="text/css">
+  </head>
+  <body>
+    <rule>
+      <top>
+	<rule>
+	  <top>
+            <rule>
+      	      <top>
+		
+      	      </top>
+      	      <bottom>
+		&exist; x (A &and; B) &#8870; &exist; x (A &and; B)
+	      </bottom>
+    	    </rule> 
+            <rule>
+      	      <top>
+		<rule>
+		  <top>
+	            &exist; x (A &and; B), (A &and; B) &#8870; A &and; B
+		  </top>
+		  <bottom>
+		    &exist; x (A &and; B), (A &and; B) &#8870; A
+		  </bottom>
+		</rule>
+      	      </top>
+      	      <bottom>
+		&exist; x (A &and; B), (A &and; B) &#8870; &exist; x A
+	      </bottom>
+    	    </rule>      
+	  </top>
+	  <bottom>
+            &exist; x (A &and; B) &#8870; &exist; x A
+	  </bottom>
+	</rule>
+	<rule>
+	  <top>(...)</top>
+	  <bottom>&exist; x (A &and; B) &#8870; &exist;x B</bottom>
+	</rule>
+      </top>
+      <bottom>&exist; x (A &and; B) &#8870; &exist; x A &and; &exist;x B</bottom>
+    </rule>
+  </body>

@@ -49,10 +49,10 @@ Schéma général :
 
 ### Le domaine des listes 
 
-Le domaine *List[*]* est paramétré par un domaine \* :  
+Le domaine *List[ * ]* est paramétré par un domaine \* :  
 
 - Constante : *[] : List[ * ]*
-- Concaténation gauche : \*. : \* x List[ * ] -> List[ * ]*
+- Concaténation gauche : *. : \* x List[ * ] &rarr; List[ * ]*
 - Exemples :  
 *0 . [] = [0]*  
 *[] . [] = [[]] &ne; []*  

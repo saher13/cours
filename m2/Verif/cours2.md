@@ -38,7 +38,7 @@ avec *v &isin; Var* et *op &isin; Op*.
 
 Les termes sont interprétés comme des éléments du domaine *D* : 
 - soit *v &isin; Var &rarr; D* une valuation des variables
-- alors, *(t)<sub>y</sub>* est la value de *D* obtenue par évaluation de *t* 
+- alors, *(t)<sub>v</sub>* est la valeur de *D* obtenue par évaluation de *t* 
 en utilisant *v* comme valuation
 
 ## Syntaxe des formules 
@@ -49,8 +49,8 @@ Une formule est de la forme
 avec *p &isin; Pred* et *v &isin; Var*.  
 Abbréviations : 
 
-- &not;&Phi; ::= (&Phi;&rArr;&Perp;)
-- &Phi; &lArr;&rArr; &Phi;' ::= &Phi; &rArr; &Phi;' &and; &Phi;' &rArr; &Phi;
+- &not;&Phi; ::= (&Phi;&rArr;&perp;)
+- &Phi; &hArr; &Phi;' ::= &Phi; &rArr; &Phi;' &and; &Phi;' &rArr; &Phi;
 
 Un occurence de la variable *x* est liée dans une formule &Phi; si elle 
 est sous un **quantificateur** &exist;x ou &forall;x. On ne considère que des 

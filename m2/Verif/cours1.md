@@ -6,21 +6,20 @@ Les programmes transforment les données. Ils implémentent des fonctions
 entre entrées et sorties.  
 Des exemples de domaines : Boolean, Char, Integer, Real, String, List...  
 Une fonction a un **type** (domaine et co-domaine) : 
-``` f : D1 x ... x Dn -> D```  
+*f : D1 x ... x Dn &rarr; D*.  
 Les types doivent être donnés précisément, cela évite beaucoup d'erreurs. 
 
 ## Définir des fonctions 
 
 Si le domaine des données est **fini**, on peut énumérer ses valeurs. Ce n'est 
 pas toujours pratique, mais en théorie possible.  
-Exemple : 
-```
-0 &and; 0 = 0 
-0 &and; 1 = 0 
-1 &and; 0 = 0 
-1 &and; 1 = 1 
-// ou, en plus compacte :  
-x &and; y = (if x = 0 then 0 else y)
+Exemple :  
+*0 &and; 0 = 0*  
+*0 &and; 1 = 0*  
+*1 &and; 0 = 0*  
+*1 &and; 1 = 1*  
+ou, en plus compacte :  
+*x &and; y = (if x = 0 then 0 else y)*
 ```
 Pour écrire des fonctions sur des domaines infinis, on a besoin de 
 constructions plus puissantes. Il faut donner une structures aux domaines de 
@@ -35,7 +34,7 @@ constructeurs.
 Exemple (ensemble *Nat* des entiers naturels) : 
 ```
 Constante : 0 : Nat
-Constructeur : s : Nat -> Nat
+Constructeur : s : Nat &rarr; Nat
 Exemple d'éléments : 0, s(0), s(s(0)) = s²(0), ...
 ``` 
 Schéma général :  
@@ -53,12 +52,12 @@ Schéma général :
 
 Le domaine *List[*]* est paramétré par un domaine \* :  
 
-- Constante : *[] : List[\*]*
-- Concaténation gauche : *. : \* x List[\*] -> List[\*]*
-- Exemples : 
-0 . [] = [0]  
-[] . [] = [[]] &ne; []  
-(0 . []) . ((2 . []).[]) = [[0];[2]] 
+- Constante : *[] : List[ * ]*
+- Concaténation gauche : \*. : \* x List[ * ] -> List[ * ]*
+- Exemples :  
+*0 . [] = [0]*  
+*[] . [] = [[]] &ne; []*  
+*(0 . []) . ((2 . []).[]) = [[0];[2]]*
 
 
 ## Définir des fonctions sur des ensembles définis par induction
@@ -78,7 +77,7 @@ Schéma général :
 - Soit *f : D x E &rarr; F*
 - Pour toute constante *c &isin; D* et tout *e &isin; E*, on définit *f(c,e)* 
 comme un élément de *F* 
-- Pour tout constructeur * &alpha; : D<sup>n</sup> x A &rarr; D*, pour tout *e 
+- Pour tout constructeur *&alpha; : D<sup>n</sup> x A &rarr; D*, pour tout *e 
 &isin; E*, 
 on définit *f(&alpha;(x<sub>1</sub>, ..., x<sub>n</sub>, a), e)* en utilisant 
 *a* et *f(x<sub>1</sub>,e), ..., f(x<sub>n</sub>,e)* 

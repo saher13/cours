@@ -52,7 +52,7 @@ Schéma général :
 Le domaine *List[ * ]* est paramétré par un domaine \* :  
 
 - Constante : *[] : List[ * ]*
-- Concaténation gauche : *. : \* x List[ * ] &rarr; List[ * ]*
+- Concaténation gauche : *. : * x List[ * ] &rarr; List[ * ]*
 - Exemples :  
 *0 . [] = [0]*  
 *[] . [] = [[]] &ne; []*  

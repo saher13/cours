@@ -20,7 +20,6 @@ Exemple :
 *1 &and; 1 = 1*  
 ou, en plus compacte :  
 *x &and; y = (if x = 0 then 0 else y)*
-```
 Pour écrire des fonctions sur des domaines infinis, on a besoin de 
 constructions plus puissantes. Il faut donner une structures aux domaines de 
 données infinis. 

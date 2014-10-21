@@ -229,7 +229,9 @@ Il existe un élément qui contient l'intégralité du document : la **racine**.
 
 ### Elements 
 
-```<name>...contenu...</name>```  
+```
+<name> ...contenu... </name>
+```  
 Les noms des éléments sont des *noms XML* quelconques. Le *contenu* peut être 
 composé de texte, d'autres éléments, de commentaires et d'instructions de 
 traitement.  
@@ -324,4 +326,5 @@ Permet de scinder un document en plusieurs parties bien formées.
   <xi:include href="introduction.xml"   parse="xml"/>
   <xi:include href="Syntax/chapter.xml" parse="xml"/>
   ...
-</book>```
+</book>
+```

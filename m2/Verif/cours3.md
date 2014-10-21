@@ -27,11 +27,12 @@ Ms(l1) = Ms(l2) => l2 est une permutation de l1.
 
 Soit E un ensemble, et soit *&#8826; &sube; E x E* une relation binaire sur E.  
 La relation &#8826; est **bien fondée** si elle n'a pas de chaine descendante 
-infinie, càd aucune séquence de la forme e<sub>0</sub> ? .. e<sub>i</sub> ? ..  
-(E. ?) est alors un ensemble **bien fondé**.  
+infinie, càd aucune séquence de la forme e<sub>0</sub> &#8827; .. e<sub>1</sub> 
+&#8827; ..  
+(E. &#8826;) est alors un ensemble **bien fondé**.  
 *Théorème* : &#8826; est bien fondée ssi 
-&forall;F&sube;E.F&#8826;ne;&#8826;empty; 
-&rArr; (&exist;e&isin;F . &forall;e'&isin;F . e' (&#2280;) e)
+&forall;F&sube;E.F&#8826;&ne;&#8826;empty; 
+&rArr; (&exist;e&isin;F . &forall;e'&isin;F . e' (&#8836;) e)
 
 ## Induction Noetherienne 
 

@@ -250,7 +250,9 @@ On ne peut pas écrire directement dans le contenu les caractères spéciaux '>'
 '>' et '&', il faut passer par les *entités prédéfinies*. Mais cela peut 
 être long si il y en a beaucoup. Il existe donc les **sections littérales**, ou 
 **sections CDATA**, qui inclue des caractères recopiés à l'identique.  
-```<![CDATA[...contenu...]]>```  
+```
+<![CDATA[...contenu...]]>
+```  
 Une section CDATA ne peut pas contenir la chaine "]]>" car elle détecte 
 la fin de section. Il est donc impossible d'imbriquer ces sections.  
 

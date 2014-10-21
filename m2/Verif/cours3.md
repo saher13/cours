@@ -43,7 +43,7 @@ x &#8826;<sub>&rho;</sub> t &hArr; &rho;<sub>x</sub>&#8826;&rho;<sub>y</sub>.
 Règle d'induction :  
 &forall; x &isin; D . 
 ((&forall;y.y &#8826;<sub>&rho;</sub> x &rArr; P(y)) &rArr; P(x))
-_______________________________________________________
+<hr/>
 &forall;x&isin;D . P(x)
 
 ## Conclusion 

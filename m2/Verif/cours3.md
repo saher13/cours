@@ -27,7 +27,7 @@ Ms(l1) = Ms(l2) => l2 est une permutation de l1.
 
 Soit E un ensemble, et soit *&#8826; &sube; E x E* une relation binaire sur E.  
 La relation &#8826; est **bien fondée** si elle n'a pas de chaine descendante 
-infinie, càd aucune séquence de la forme e<sub>0<sub> ? ... e<sub>i<sub> ? ...  
+infinie, càd aucune séquence de la forme e<sub>0</sub> ? .. e<sub>i</sub> ? ..  
 (E. ?) est alors un ensemble **bien fondé**.  
 *Théorème* : &#8826; est bien fondée ssi 
 &forall;F&sube;E.F&#8826;ne;&#8826;empty; 
@@ -39,11 +39,11 @@ Soit *(E, &#8826;)* une relation bien fondée et soit la mesure
 *&rho; : D &rarr; E*.  
 Soit &#8826;<sub>&rho;</sub> &sube; D x D une relation telle que :  
 x &#8826;<sub>&rho;</sub> t &hArr; &rho;<sub>x</sub>&#8826;&rho;<sub>y</sub>.  
-Règle d'induction : 
+Règle d'induction :  
 &forall; x &isin; D . 
 ((&forall;y.y &#8826;<sub>&rho;</sub> x &rArr; P(y)) &rArr; P(x))
 _______________________________________________________
-&foall;x&isin;D . P(x)
+&forall;x&isin;D . P(x)
 
 ## Conclusion 
 

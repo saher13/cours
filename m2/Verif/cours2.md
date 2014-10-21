@@ -114,9 +114,9 @@ sont définies sur un ou plusieurs domaines *D<sub>1</sub>, ..., D<sub>n</sub>*.
  - &empty; : Multiset[ * ] = &lambda;x &isin; *. 0
  - Sg : \* &rarr; Multiset[ * ] = Sg(a) = &lambda;x &isin; \*. 
 if x = a then 1 else 0
- - &#2A04; : Multiset[ * ] x Multiset[ * ] &rarr; Multiset[ * ].  
-   M<sub>1</sub> &#2A04; M<sub>2</sub> = &lambda;x &isin; * . M<sub>1</sub>(x) 
-+ M2(x)
+ - &#10756; : Multiset[ * ] x Multiset[ * ] &rarr; Multiset[ * ].  
+   M<sub>1</sub> &#10756; M<sub>2</sub> = &lambda;x &isin; * . M<sub>1</sub>(x)+
+M<sub>2</sub>(x)
 - Propriétés : élément neutre (&empty;), commutativité, associativité. 
 
 ## Prédicats inductifs 

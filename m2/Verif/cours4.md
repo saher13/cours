@@ -57,9 +57,9 @@ On considère des formules de la forme {&phi;}S{&psi;} où *S* est une commande,
 En partant d'un état qui satisfait &phi;, si l'exécution de *S* termine, alors 
 l'état atteint doit satisfaire *&psi;.  
 Formellement :  
-{&phi;}S{&psi;} ssi 
-&foreach;&mu;, &mu;'. (&mu; &#22A8; &phi; &and; &mu; &rarr;<sub>S</sub>&mu;') 
-&rArr; &mu;' &#22A8; &psi;  
+{&phi;}S{&psi;} ssi  
+&forall;&mu;, &mu;'. (&mu; &#8872; &phi; &and; &mu; &rarr;<sub>S</sub>&mu;') 
+&rArr; &mu;' &#8872; &psi;  
 On cherche à prouver la validité de telles formules. 
 
 ## Logique de Hoare 

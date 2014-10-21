@@ -33,8 +33,8 @@ Les transitions entre états correspondent à l'exécution de commandes :
 Les assertions sur les états du programme peuvent être exprimées dans la 
 logique du 1er ordre sur X. On définit deux commandes spéciales : 
 **assume(&phi;)** et **assert(&phi;)** (où &phi; est une formule sur X).  
-La sémantique : 
-![schéma p.10](4_02.png)
+La sémantique :  
+![schéma p.10](4_02.png)  
 avec &perp; un état spécial : **erreur**.
 
 ## Invariants de boucles 
@@ -53,7 +53,7 @@ implique la post-condition désirée.
 
 On considère des formules de la forme {&phi;}S{&psi;} où *S* est une commande, 
 *&phi;* et *&psi;* sont des assertions. Ce sont des **triplets de Hoare**.  
-*&phi; est la **pre-condition** et &psi; est la **post-condition**.  
+*&phi;* est la **pre-condition** et &psi; est la **post-condition**.  
 En partant d'un état qui satisfait &phi;, si l'exécution de *S* termine, alors 
 l'état atteint doit satisfaire *&psi;.  
 Formellement :  

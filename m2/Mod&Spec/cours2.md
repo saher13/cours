@@ -17,7 +17,7 @@ Q q<sub>n</sub> &rarr;<sup>a</sup> q').
 Toutes les séquences infinies sont maximales.
 On voit ça comme une suite " état - action - état - action..."
 
-La trace d'une séquence d'exécution est sa projection sur A\{&Tau;} (on ne 
+La trace d'une séquence d'exécution est sa projection sur A\{&tau;} (on ne 
 garde que les actions non-invisibles (voir plus loin) ).  
 Trace (q) = {traces des séquences d'exécution maximales à partir de q}
 
@@ -56,9 +56,9 @@ Alors q<sub>2</sub> simule q<sub>1</sub> et q<sub>1</sub> raffine q<sub>2</sub>.
 
 ## Action invisible
 
-&Tau; &isin; A est une action invisible.
+&tau; &isin; A est une action invisible.
 Si un des systèmes peut, sans prévenir, faire une séquence d'actions invisibles
-(éventuellement nulle : &Tau;<sup>*</sup> ) et arriver à un état, l'autre doit 
+(éventuellement nulle : &tau;<sup>*</sup> ) et arriver à un état, l'autre doit 
 aussi pouvoir faire une séquence d'actions invisibles (pas forcément la même) 
 pour arriver au même état.  
 C'est symétrique pour la bisimulation. 

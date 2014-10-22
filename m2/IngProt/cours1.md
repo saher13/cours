@@ -187,7 +187,7 @@ lancés.
 *Replay Problem* : on veut pouvoir reproduire la séquence. Ceci pose des 
 problèmes en présence de concurrence ou de non-déterminisme. 
 
-On peut détecter 3 types d'erreurs : 
+On peut détecter 3 types d'erreurs :  
 ![schéma p.53](1_03.png)
  
 ## Méthode TT 
@@ -213,7 +213,7 @@ erreur de transfert
 Une séquence d'entrées est une **DS** *(suite discriminante)* si après 
 exécution on peut déterminer l'état initial en observant la suite des sorties 
 obtenues.  
-Tous les automates ne possèdent pas de telles suites. 
+Tous les automates ne possèdent pas de telles suites.  
 *Séquence de tests couvrant toutes les transitions :*  
 ![schéma p.62](1_04.png)
 [Pas clair : ]
@@ -235,7 +235,7 @@ gérable en temps et en espace.
 ### UIO : entrées/sorties uniques
 
 Une suite est une suite d'**UIO** pour un état *s* si après application des 
-entrées, on peut déterminer l'état initial par la suite de sorties obtenues. 
+entrées, on peut déterminer l'état initial par la suite de sorties obtenues.  
 *Séquence de tests :*  
 ![schéma p.71](1_06.png)
 

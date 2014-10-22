@@ -74,7 +74,8 @@ post-condition et on la met en pré-condition en substituant selon l'expression.
 ### Règles d'inférences
 
 ![schémas](4_04.png)
-
+Implication : en gros a remplacé la pré-condition par un fait plus fort, et la 
+post-condition par un fait plus faible. 
 ## Conclusion 
 
 Les programmes impératifs transforments des états mémoire : ils peuvent être 

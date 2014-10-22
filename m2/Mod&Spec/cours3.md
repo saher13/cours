@@ -32,7 +32,7 @@ i&le;k<j &rArr; &sigma;,k &#8877; &phi;<sub>1</sub>)
 
 Notation : on écrit &sigma; &#8877; &phi; &equiv; &sigma;,0 &#8877; &phi; 
 (état initial)
-Un **système** est de la forme *M=(Q, &pi;, &delta)* avec : 
+Un **système** est de la forme *M=(Q, &pi;, &delta;)* avec : 
 - Q l'ensemble des états
 - &pi; : Q &rarr; &weierp;(Prop)
 - &delta; &sube; Q x Q

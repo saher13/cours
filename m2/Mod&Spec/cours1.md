@@ -10,7 +10,7 @@ Se référer à un cours sur les automates.
 
 Soient S<sub>1</sub> = (Q<sub>1</sub>, A, &delta;<sub>1</sub>) et 
 S<sub>2</sub> = (Q<sub>2</sub>, A, &delta;<sub>2</sub>).  
-**Sync** &subeq; A est l'ensemble des **actions de synchronisation**.  
+**Sync** &sube; A est l'ensemble des **actions de synchronisation**.  
 S<sub>1</sub> ||<sub>Sync</sub> S<sub>2</sub> 
 = (Q<sub>1</sub>xQ<sub>2</sub>)x A x (Q<sub>1</sub>xQ<sub>2</sub>) la plus 
 petite relation telle que : 

@@ -30,13 +30,13 @@ spécification.
 
 ## (Bi)simulation
 
-La relation binaire entre Q et Q, R &sube; Q x Q, est une bisimulation ssi
-&forall; q<sub>1</sub>, q<sub>2</sub> &isin; Q  q<sub>1</sub> R q<sub>2</sub> 
+La relation binaire entre Q et Q, R &sube; Q x Q, est une bisimulation ssi  
+&forall;q<sub>1</sub>,q<sub>2</sub>&isin;Q,  q<sub>1</sub> R q<sub>2</sub> 
 &hArr;
-&forall; q'<sub>1</sub>, &isin; Q, &forall; a &isin; A  q<sub>1</sub> 
+&forall;q'<sub>1</sub>,&isin;Q, &forall;a&isin;A  q<sub>1</sub> 
 &rarr;<sup>a</sup><sub>&delta;</sub> q'<sub>1</sub> 
-&rArr; &exist;q'<sub>2</sub> &isin; Q  
-q<sub>2</sub> &rArr;<sup>a</sup><sub>&delta;</sub> q'<sub>1</sub> R 
+&rArr; &exist;q'<sub>2</sub> &isin; Q, 
+ q<sub>2</sub> &rArr;<sup>a</sup><sub>&delta;</sub> q'<sub>1</sub> R 
 q'<sub>2</sub>  
 Autrement dit :   
 Deux automates sont bisimulés si à chaque fois que l'un fait quelque chose 

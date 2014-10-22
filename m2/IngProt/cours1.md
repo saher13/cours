@@ -169,4 +169,74 @@ l'exécution de B.
 La couveture de branche n'est pas garantie par la couverture des états. Elle 
 est obligatoire dans le test unitaire. 
 
-[arret page 51]
+## Tracabilité 
+
+On veut lier les valeurs abstraites (spécification) aux valeurs concrètes 
+(implantation).  
+Les cas de test décrivent des séquences d'actions, qui peuvent être 
+interprétées au niveau (abstrait) de la spécification.  
+Pour exécuter ces tests sur l'implantation, il convient de les **concrétiser** 
+en termes d'exécution, via l'interface E/S du système. 
+
+## Exécution 
+
+On va forcer l'**Implémentation Sous Test** (IUT) à exécuter une séquence 
+d'évènements séléctionés.  
+*Pré-condition* : le système doit être dans un état où ces tests peuvent être 
+lancés.  
+*Replay Problem* : on veut pouvoir reproduire la séquence. Ceci pose des 
+problèmes en présence de concurrence ou de non-déterminisme. 
+
+On peut détecter 3 types d'erreurs : 
+![schéma p.53](1_03.png)
+ 
+## Méthode TT 
+
+La **méthode TT** (tour de transition) trouve les erreurs de sortie. Un tour 
+de transition est un chemin de l'état initial vers lui-même qui passe par 
+toutes les transitions au moins 1 fois. On défini une suite d'entrées et 
+la suite de sorties correspondante. 
+
+## DS, W, UIO
+
+On dispose des *DS*, *W* et *UIO (Unique I/O)*. Le principe est similaire : 
+
+- On génère une séquence de test de la forme (s1, i, o, s2). 
+- On met l'IUT dans l'état s1 : c'est le **préambule**
+- On applique l'entrée *i*, et on vérifie si la sortie obtenue est bien *o*. Si 
+non, il y a une erreur de sortie
+- On vérifie que l'état suivant de l'IUT est bien s2. Si non, il y a une 
+erreur de transfert 
+
+### DS : suite discriminante
+
+Une séquence d'entrées est une **DS** *(suite discriminante)* si après 
+exécution on peut déterminer l'état initial en observant la suite des sorties 
+obtenues.  
+Tous les automates ne possèdent pas de telles suites. 
+*Séquence de tests couvrant toutes les transitions :*  
+![schéma p.62](1_04.png)
+[Pas clair : ]
+Apparemment, le préambule est le chemin fait pour arriver à l'état permettant 
+la transition voulue. La sortie est ce qu'on a une fois la transition faite. 
+Les "transitions" sont les chemins possibles depuis le nouvel état atteint. 
+
+### W : ensemble discriminant
+
+Un ensemble d'inputs est un *ensemble discriminant* (noté **W**) si après 
+application de toutes ses suites, on peut déterminer l'état source en 
+observant la suite de sorties.  
+Tout automate possède un **W**, mais les contraintes sont trop importantes : 
+la séquence est longue, il est donc souvent très volumineux et difficilement 
+gérable en temps et en espace.  
+*Séquence de tests :*  
+![schéma p.66](1_05.png)
+
+### UIO : entrées/sorties uniques
+
+Une suite est une suite d'**UIO** pour un état *s* si après application des 
+entrées, on peut déterminer l'état initial par la suite de sorties obtenues. 
+*Séquence de tests :*  
+![schéma p.71](1_06.png)
+
+### PUIO : Partial UIO

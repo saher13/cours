@@ -12,7 +12,7 @@ q<sub>n</sub>* telle que :
 - &forall; i, 0 &le; i &le; n, on a *q<sub>i</sub> &rarr; 
 <sup>a<sub>i</sub></sup><sub>&delta;</sub> q<sub>(i+1)</sub>
 
-Une séquence est maximale ssi q<sub>n</sub> &#8603; (!&exist;q' &isin; 
+Une séquence est maximale ssi q<sub>n</sub> &#8603; (&#8708;q' &isin; 
 Q q<sub>n</sub> &rarr;<sup>a</sup> q').
 Toutes les séquences infinies sont maximales.
 On voit ça comme une suite " état - action - état - action..."
@@ -24,13 +24,13 @@ Trace (q) = {traces des séquences d'exécution maximales à partir de q}
 Equivalence des traces :  
 q &equiv;<sub>T</sub> q' ssi  Traces(q) = Traces(q').  
 Inclusion des traces :  
-q &subeq;<sub>T</sub> q' ssi Traces(q) &subeq; Traces(q').  
+q &sube;<sub>T</sub> q' ssi Traces(q) &sube; Traces(q').  
 Toutes les traces permises par l'implémentation doivent être admises par la
 spécification.
 
 ## (Bi)simulation
 
-La relation binaire entre Q et Q, R &subeq; Q x Q, est une bisimulation ssi
+La relation binaire entre Q et Q, R &sube; Q x Q, est une bisimulation ssi
 &forall; q<sub>1</sub>, q<sub>2</sub> &isin; Q  q<sub>1</sub> R q<sub>2</sub> 
 &hArr;
 &forall; q'<sub>1</sub>, &isin; Q, &forall; a &isin; A  q<sub>1</sub> 
@@ -47,9 +47,9 @@ Donc si l'autre ne peut pas toujours répondre par la même action, ils ne sont
 pas équivalents.  
 La simulation c'est quand ça marche dans un sens.
 
-- q<sub>1</sub> &equivalent;<sub>bisim</sub> q<sub>2</sub> 
+- q<sub>1</sub> &equiv;<sub>bisim</sub> q<sub>2</sub> 
 ssi &exist; R une bisimulation telle que q<sub>1</sub> R q<sub>2</sub>
-- q<sub>1</sub> &subeq;<sub>sim</sub> q<sub>2</sub> 
+- q<sub>1</sub> &sube;<sub>sim</sub> q<sub>2</sub> 
 ssi &exist; R une simulation telle que q<sub>1</sub> R q<sub>2</sub>  
 
 Alors q<sub>2</sub> simule q<sub>1</sub> et q<sub>1</sub> raffine q<sub>2</sub>.

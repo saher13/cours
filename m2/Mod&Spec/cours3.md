@@ -16,7 +16,7 @@ satisfaire &phi;<sub>1</sub>.
   
 Une séquence d'exécution est un fonction &sigma; qui associe à chaque instant 
 une certaine interprétation des propriétés atomiques.  
-&sigma; : &#2116; &rArr; &weierp; (Prop).  
+&sigma; : &#8469; &rArr; &weierp; (Prop).  
 &sigma; (i) : les propriétés atomiques qui sont vraies au point *i* de la 
 séquence &sigma; 
 

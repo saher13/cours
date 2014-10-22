@@ -9,8 +9,8 @@ forme *q<sub>0</sub> a<sub>0</sub> q<sub>1</sub> a<sub>1</sub> ...
 q<sub>n</sub>* telle que :
 
 - q<sub>0</sub> = q
-- &forall; i, 0 &le; i &le; n, on a *q<sub>i</sub> &rarr; 
-<sup>a<sub>i</sub></sup><sub>&delta;</sub> q<sub>(i+1)</sub>
+- &forall;i, 0 &le; i &le; n, on a *q<sub>i</sub> &rarr; 
+<sup>a<sub>i</sub></sup><sub>&delta;</sub> q<sub>(i+1)</sub>*
 
 Une séquence est maximale ssi q<sub>n</sub> &#8603; (&#8708;q' &isin; 
 Q q<sub>n</sub> &rarr;<sup>a</sup> q').

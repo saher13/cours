@@ -1,4 +1,4 @@
-# XML - Cours 1 - Présentation
+# XML - Cours 1 : Présentation
 
 XML = eXtended Markup Language. C'est un format de documents orienté texte.  
 C'est un standard de stockage ou de transmission de données.  

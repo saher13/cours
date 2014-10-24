@@ -1,4 +1,4 @@
-# XML - Cours 2 - Syntaxe
+# XML - Cours 2 : Syntaxe
 
 La syntaxe XML est très simple : quelques règles pour l'entête, et des balises 
 pour structurer les données. Contrairement à HTML, les noms des balises sont 

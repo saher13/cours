@@ -1,4 +1,4 @@
-# Modélisation & Spécification - Cours 3
+# Modélisation & Spécification - Cours 3 : LTL
 
 La spécification peut-être décrite par un comportement abstrait, ou un langage 
 logique qui permet de parler de l'évolution des états. 
@@ -25,7 +25,7 @@ séquence &sigma;
 - &sigma;,i &#8872; &not;&phi;  ssi  &sigma;,i &#8877;  &phi;  
 - &sigma;,i &#8872; &phi;<sub>1</sub> &or; &phi;<sub>2</sub>  
 ssi  &sigma;,i &#8877; &phi;<sub>1</sub> ou &sigma;,i &#8877; &phi;<sub>2</sub> 
-- &sigma;,i &#8872; &#9675;&phi; ssi &sigma;,i+1 &#8875; &phi;  
+- &sigma;,i &#8872; &#9675;&phi; ssi &sigma;,i+1 &#8872; &phi;  
 - &sigma;,i &#8872; &phi;<sub>1</sub> &#7266; &phi;<sub>2</sub>  
 ssi  &exist; j &ge; i (&sigma;,j &#8877; &phi;<sub>2</sub> et &forall;k, 
 i&le;k<j &rArr; &sigma;,k &#8877; &phi;<sub>1</sub>)  
@@ -39,7 +39,7 @@ Un **système** est de la forme *M=(Q, &pi;, &delta;)* avec :
 
 Traces(M,q) = {&pi;(q<sub>0</sub>)&pi;(q<sub>1</sub>)...
 |q<sub>0</sub>q<sub>1</sub>...une séquence d'exécution de M à partir de q}
-M,q &#8872; &phi; ssi &forall;&delta;&isin;Traces(q), &sigma; &#8872;&phi;
+M,q &#8872; &phi; ssi &forall;&sigma;&isin;Traces(q), &sigma;&#8872;&phi;
 
 
 On définit *&#9671;&phi; = vrai &#7266; &phi;* : inévitablement, &phi; sera 
@@ -61,8 +61,10 @@ Garantie d'obtention de la ressource :
 &#9633;(Att1 &rArr; &#9671;Util1) et &#9633;(Att2 &rArr; &#9671;Util2) 
 
 **Propriété de sûreté** : toute action faite laisse le système dans un ensemble 
-d'états "bons" ("Il n'arrive jamais quelque chose de mauvais").  
+d'états "bons" ("Il n'arrive jamais quelque chose de mauvais") = &#9633;&phi;.  
 **Propriété de vivacité** : "quelque chose de bon va arriver".  
+**Hypothèse d'équité** : un nombre infini de p implique un nombre infini de q. 
+&#9633;&#9675;p &rarr; &#9633;&#9675;q  
 
 Dans le système donné, rien ne garantit l'exclusion mutuelle. On introduit un 
 système pour la ressource : 
@@ -83,4 +85,5 @@ Nombre fini de *p* : *&#9671;(&#9633;&not;&phi;)*
   
 On peut raisonner sur la **futur** : "si *p* alors *q* sera vraie" est une 
 propriété de **réponse** (&#9633;(p&rArr;&#9671;q)).  
-On peut aussi raisonner sur le **passé** : "si *q* alors *p* a été vraie".  
+On peut aussi raisonner sur le **passé** : "si *q* alors *p* a été vraie" 
+(&#9633;&not;q &or; (&not;q&#1C62;(&not;q&and;p))).  

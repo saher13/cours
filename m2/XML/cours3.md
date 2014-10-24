@@ -134,8 +134,9 @@ Le contenu d'un élément est **pur** si il ne contient que d'autres éléments
 comme enfants : pas de texte. On définit quels peuvent être les enfants, et 
 leur ordre d'apparition.  
 On les déclare avec ```<!ELEMENT name regexp>``` où *regexp* décrit les suites 
-d'enfants valides (avec les opérateurs *, | ? * +*). Pour simplifier la 
-validation, il vaut mieux faire des contenus déterministes.  
+d'enfants valides (avec les opérateurs  
+**, | ? * +**). Pour simplifier la validation, il vaut mieux faire des 
+contenus déterministes.  
 Exemples :  
 ```
 <!ELEMENT elem (elem1, (elem2 | elem4), elem3)> 

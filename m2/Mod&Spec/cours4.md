@@ -34,7 +34,7 @@ ssi M,q&#8872;&phi;<ubs>1</sub> ou M,q&#8872;&phi;<ubs>2</sub>
 ssi &exist;q<sub>0</sub>q<sub>1</sub>...&isin;Seq_Exec(M,q), 
 &exist;j&ge;0. M,q<sub>j</sub>&#8872; et &forall;0&le;i&le;j, 
 M,q<sub>i</sub>&#8872;&phi;<sub>1</sub>  
-(on rappelle que *Seq_Exec(M,q)* q<sub>0</sub>, &forall;i&ge;0 
+(on rappelle que *Seq_Exec(M,q)* = q<sub>0</sub> initial et &forall;i&ge;0 
 q<sub>i</sub>&rarr;<sub>&delta;</sub>q<sub>i+1</sub>).  
 - M,q&#8872;&phi;<sub>1</sub>&forall;&#120088;&phi;<sub>2</sub> 
 ssi &forall;q<sub>0</sub>q<sub>1</sub>...&isin;Seq_Exec(M,q), 

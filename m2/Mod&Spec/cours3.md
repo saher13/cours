@@ -44,7 +44,7 @@ M,q &#8872; &phi; ssi &forall;&sigma;&isin;Traces(q), &sigma;&#8872;&phi;
 
 On définit *&#9671;&phi; = vrai &#120088; &phi;* : inévitablement, &phi; sera 
 vraie dans le futur.  
-On définit *&#9633;&phi; = &not;&#9671;&not;&phi; : &phi; sera tout le temps 
+On définit *&#9633;&phi; = &not;&#9671;&not;&phi;* : &phi; sera tout le temps 
 vraie (à partir de maintenant).  
 
 

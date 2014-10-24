@@ -8,10 +8,10 @@ logique qui permet de parler de l'évolution des états.
 Soit *Prop* un ensemble de propositions atomiques. 
 
 &phi; ::= p &isin; Prop | &not;&phi; | &phi; &or; &phi; | &#9675;&phi; (next) 
-| &phi; &#7266; &phi; (until)  
+| &phi; &#120088; &phi; (until)  
 *&#9675;&phi;* : dans l'état suivant, &phi; sera vraie.  
-*&phi;<sub>1</sub> &#7266; &phi;<sub>2</sub>* : on veut &phi;<sub>2</sub> à un 
-moment (futur ou maintenant). Et toutes les états avant celui-ci doivent 
+*&phi;<sub>1</sub> &#120088; &phi;<sub>2</sub>* : on veut &phi;<sub>2</sub> à 
+un moment (futur ou maintenant). Et toutes les états avant celui-ci doivent 
 satisfaire &phi;<sub>1</sub>.  
   
 Une séquence d'exécution est un fonction &sigma; qui associe à chaque instant 
@@ -26,7 +26,7 @@ séquence &sigma;
 - &sigma;,i &#8872; &phi;<sub>1</sub> &or; &phi;<sub>2</sub>  
 ssi  &sigma;,i &#8877; &phi;<sub>1</sub> ou &sigma;,i &#8877; &phi;<sub>2</sub> 
 - &sigma;,i &#8872; &#9675;&phi; ssi &sigma;,i+1 &#8872; &phi;  
-- &sigma;,i &#8872; &phi;<sub>1</sub> &#7266; &phi;<sub>2</sub>  
+- &sigma;,i &#8872; &phi;<sub>1</sub> &#120088; &phi;<sub>2</sub>  
 ssi  &exist; j &ge; i (&sigma;,j &#8877; &phi;<sub>2</sub> et &forall;k, 
 i&le;k<j &rArr; &sigma;,k &#8877; &phi;<sub>1</sub>)  
 
@@ -42,7 +42,7 @@ Traces(M,q) = {&pi;(q<sub>0</sub>)&pi;(q<sub>1</sub>)...
 M,q &#8872; &phi; ssi &forall;&sigma;&isin;Traces(q), &sigma;&#8872;&phi;
 
 
-On définit *&#9671;&phi; = vrai &#7266; &phi;* : inévitablement, &phi; sera 
+On définit *&#9671;&phi; = vrai &#120088; &phi;* : inévitablement, &phi; sera 
 vraie dans le futur.  
 On définit *&#9633;&phi; = &not;&#9671;&not;&phi; : &phi; sera tout le temps 
 vraie (à partir de maintenant).  
@@ -86,4 +86,4 @@ Nombre fini de *p* : *&#9671;(&#9633;&not;&phi;)*
 On peut raisonner sur la **futur** : "si *p* alors *q* sera vraie" est une 
 propriété de **réponse** (&#9633;(p&rArr;&#9671;q)).  
 On peut aussi raisonner sur le **passé** : "si *q* alors *p* a été vraie" 
-(&#9633;&not;q &or; (&not;q&#1C62;(&not;q&and;p))).  
+(&#9633;&not;q &or; (&not;q&#120088;(&not;q&and;p))).  

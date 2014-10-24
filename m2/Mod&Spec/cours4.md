@@ -17,7 +17,8 @@ Dans *LTL*, on fixait une séquence, et on raisonnait toujours sur cette
 séquence. Ici, on peut bifurquer sur tous les chemins. On introduit des 
 quantificateurs : les formules *LTL* sont implicitement précédées de &forall;.  
 &phi: ::= p&isin;Prop | &not;&phi; | &phi;&or;&phi; | &exist;&#9675;&phi; | 
-&forall;&#9675;&phi; | &phi;&exist;&#1C62;&phi; | &phi;&forall;&#1C62;&phi;  
+&forall;&#9675;&phi; | &phi;&exist;&#120088;&phi; | 
+&phi;&forall;&#120088;&phi;  
 On définit un ensemble d'états *M = (Q, &Pi;, &delta;)*, avec 
 *&Pi;:Q&rarr;&weierp;(Prop)*.  
 
@@ -29,22 +30,22 @@ ssi M,q&#8872;&phi;<ubs>1</sub> ou M,q&#8872;&phi;<ubs>2</sub>
 - &and; M,q'&#8872;&phi;  
 - M,q&#8872;&forall;&#9675;&phi; ssi &forall;q', q&rarr;<sub>&delta;</sub>q' 
 &and; M,q'&#8872;&phi;  
-- M,q&#8872;&phi;<sub>1</sub>&exist;&#1C62;&phi;<sub>2</sub> 
+- M,q&#8872;&phi;<sub>1</sub>&exist;&#120088;&phi;<sub>2</sub> 
 ssi &exist;q<sub>0</sub>q<sub>1</sub>...&isin;Seq_Exec(M,q), 
 &exist;j&ge;0. M,q<sub>j</sub>&#8872; et &forall;0&le;i&le;j, 
 M,q<sub>i</sub>&#8872;&phi;<sub>1</sub>  
 (on rappelle que *Seq_Exec(M,q)* q<sub>0</sub>, &forall;i&ge;0, 
 - q<sub>i</sub>&rarr;<sub>&delta;</sub>q<sub>i+1</sub>).  
-M,q&#8872;&phi;<sub>1</sub>&forall;&#1C62;&phi;<sub>2</sub> 
+M,q&#8872;&phi;<sub>1</sub>&forall;&#120088;&phi;<sub>2</sub> 
 ssi &forall;q<sub>0</sub>q<sub>1</sub>...&isin;Seq_Exec(M,q), 
 &exist;j&ge;0. M,q<sub>j</sub>&#8872; et &forall;0&le;i&le;j, 
 M,q<sub>i</sub>&#8872;&phi;<sub>1</sub>
 
-&exist;&#9675;&Pi; = vrai&exist;&#1C62;&phi; (&phi; est **possible** un jour : 
-*accessibilité*).  
+&exist;&#9675;&Pi; = vrai&exist;&#120088;&phi; (&phi; est **possible** un 
+jour : *accessibilité*).  
 &forall;&#9633;&Pi; = &not;&exist;&#9675;&not;&phi; : il n'existe pas de 
 chemin sur lequel il y a &not;&phi; (donc &phi; est **toujours** vraie).  
-&forall;&#9675;&Pi; = vrai&forall;&#1C62;&phi; (&phi; est **inévitable** 
+&forall;&#9675;&Pi; = vrai&forall;&#120088;&phi; (&phi; est **inévitable** 
 quelque soit le chemin).  
 &exist;&#9675;&Pi; = &not;&forall;&#9675;&not;&phi; (il existe une séquence 
 dans laquelle &phi; est toujours vraie).  

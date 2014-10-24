@@ -29,7 +29,7 @@ Une DTD est **externe** si elle est localisée dans un autre fichier (en
 *.dtd*).  
 On peut l'adresser par une URL 
 ```<!DOCTYPE root-element SYSTEM "url.dtd">```.  
-On peut aussi l'adresser par **FPI** (*Formal Public Identifier*) de la forme 
+On peut aussi l'adresser par **FPI** (*Formal Public Identifier*) de la forme  
 ```type//owner//desc//lang``` : ```-//W3C//DTD XHTML 1.0 Strict//EN```.  
 Le *type* est "+" ou "-" selon que le propriétaire respecte la norme ISO 9070 
 ou pas.  
@@ -39,7 +39,8 @@ DTD de place, on ne change que dans le catalogue, pas dans tous les documents.
 L'URL est utilisée quand le FPI ne permet pas de retrouver la DTD.  
   
 *Note : on peut convertir un FPI en URI en remplaçant "//" par ":" et " " par 
-"+" -> urn:publicid:-:W3C:DTD+XHTML+1.0+Strict:EN .* 
+"+"  
+-> urn:publicid:-:W3C:DTD+XHTML+1.0+Strict:EN .* 
 
 ### DTD mixte 
 
@@ -56,7 +57,8 @@ foi.
 ## Contenu d'une DTD 
 
 Une DTD est formée de déclaration d'**éléments**, d'**attributs** et 
-d'**entités**. Chaque déclaration est comprise dans ```<!TYPE ... >```. 
+d'**entités**. Chaque déclaration est comprise dans  
+```<!TYPE ... >```. 
 
 ## Entités
 
@@ -71,7 +73,7 @@ Déclaration :
 Référence d'une entité *name* :  
 ```<tag meta="attribute: &name;">Content: &name;</tag>```  
 Quand le document est traité, les références sont remplacées par le fragment 
-de document correspondant. 
+de document correspondant.  
 **Attention** : seules les entités internes peuvent être utilisées comme 
 valeur d'attribut. Les entités internes ou externes peuvent être utilisées 
 comme contenu d'élément. 
@@ -109,7 +111,7 @@ pas possibles.
 Les **entités paramètres** peuvent être utilisées uniquement à l'intérieur de 
 la DTD.  
 On les déclare avec ```<!ENTITY % name ... >``` et on les utilise avec 
-```%name;```.  
+```%name;``` .  
 Le but est d'avoir de la **modularité** : 
 ```
 <!-- Déclaration de deux entités paramètres -->

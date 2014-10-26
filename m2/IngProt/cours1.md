@@ -240,3 +240,10 @@ entrées, on peut déterminer l'état initial par la suite de sorties obtenues.
 ![schéma p.71](1_06.png)
 
 ### PUIO : Partial UIO
+
+Un **PUIO** est un UIO Partiel. On part d'un état problématique (sans UIO), et 
+on prend les transitions sortantes vers les autres états. 
+
+Quand on doit calculer le PUIO d'un état sur lequel on était déjà, on ne le 
+fait pas : on coupe les boucles.  
+![schéma p.74](1_07.png)

@@ -65,16 +65,16 @@ On peut aussi raisonner sur tous les chemins à la fois :
 
 - A &phi; : tous les chemins à partir de l'état courant satisfont &phi;
 - E &phi; : (??) il existe un chemin à partir de l'état courant qui satisfait &phi;
-- E F &phi; : (??) il existe un chemin à partir de l'état courant où &phi; est toujours 
-vraie
+- E F &phi; : (??) il existe un chemin à partir de l'état courant où &phi; est 
+toujours vraie
 - A F &phi; : (??) tous les chemins à partir de l'état courant auront toujours &phi;
 
 ### Algorithme CTL 
 
 On pose *A* le modèle a états finis et *&phi;* une formule CTL. Chaque état *q* 
 de *A* et chaque sous-formule *&psi;* de *&phi;* sont marquées si 
-**q&8872;&psi;**.  
-On construit *q.&phi;* à partir de *q.&psi;*. *A&8872;&phi;* ssi 
+**q&#8872;&psi;**.  
+On construit *q.&phi;* à partir de *q.&psi;*. *A&#8872;&phi;* ssi 
 q<sub>0</sub>.&phi; est vrai.  
 ![schéma p31](3_02.png)
 
@@ -130,12 +130,12 @@ On recherche une implémentation efficace :
 ### BDD : Binary Decision Diagrams
 
 On pose x<sub>1</sub>, ..., x<sub>n</sub> des variables booléennes et 
-<b<sub>1</sub>, ..., b<sub>n</sub>> un vecteur de booléens.  
+\<b<sub>1</sub>, ..., b<sub>n</sub>> un vecteur de booléens.  
 On veut représenter l'ensemble de vecteurs avec &Phi;(x<sub>1</sub>, ..., 
 x<sub>n</sub>) vraie. On utilise un **arbre de décision réduit**.  
 En fait les sous-arbres étant les même sont partagés, et les choix inutiles sont 
 omis.  
-![schéma p40](3_03.png)
+![schéma p40](3_03.png)  
 *Ici si b<sub>1</sub> et b<sub>2</sub> sont vrais, b<sub>3</sub> devient 
 inutile*
   
@@ -160,7 +160,7 @@ FFT T FF <=> en q1, open=T et level=0
 
 On construit BDD<sub>S</sub> avec b<sub>i</sub> &isin;BDD<sub>S</sub> 
 devient b'<sub>i</sub>, puis on construit 
-BDD'<sub>S</sub>&cap;BDD'<sub>S</sub> (l'ensemble des couples <s,s'> 
+BDD'<sub>S</sub>&cap;BDD'<sub>S</sub> (l'ensemble des couples (s,s') 
 &isin;T tels que s'&isin;S).  
 On peut ensuite oublier les b'<sub>i</sub>. Cela donne tous ce qu'il faut pour 
 implémenter le model-checker symbolique de CTL. 

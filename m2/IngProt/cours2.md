@@ -92,7 +92,7 @@ C'est aussi utile pour la sécurité (comprendre les attaques réseau).
 
 ## A l'intérieur du DPI 
 
-L'architecture générale : 
+L'architecture générale :  
 ![schéma p29](2_01.png)
 
 On groupe les paquets appartenant à la même sessions.  
@@ -190,6 +190,6 @@ Toutefois, l'expressivité des propriétés doit être forte (contraintes de tem
 et de logique). Une propriété est composée de 2 parties : un contexte, et une 
 condition à vérifier. Chacune est composée d'évènement *simples* (IP égal à X) 
 ou *complexes* (liées par des opérateurs logiques ou chronologiques comme *AND, 
-OR, NOT, AFTER, BEFORE). 
+OR, NOT, AFTER, BEFORE*). 
 
 ![schéma p61](2_02.png)

@@ -1,4 +1,4 @@
-# Ingénierie des protocoles - cours 2 
+# Ingénierie des protocoles - Cours 2 : Analyse du trafic réseau
 
 Pour pouvoir déployer un nouveau protocole réseau : 
 - définir les besoins (cahier des charges)

@@ -1,4 +1,4 @@
-# Ingénierie des protocoles - cours 1 
+# Ingénierie des protocoles - Cours 1 : FDT et Tests
 
 ## Erreurs et Pannes 
 

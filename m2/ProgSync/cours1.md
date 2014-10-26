@@ -27,7 +27,7 @@ est très longue et couteuse, environ 50 % du cout.
 
 Model-based design : Y à la place de V. 
 
-![schéma p16](1_02.png)
+![schéma Y](1_02.png)
 
 On fera le modèle en Y. Il nous faut un langage de programmation ergonomique, 
 avec une sémantique formelle bien définie (pour assurer la cohérence, la 
@@ -60,9 +60,10 @@ qu'on respecte les types.
   
 3 opérateurs temporels importants (cf schemas) : 
 - **pre** (précédent), qui donne Y_n = X_(n-1), la valeur au *tick prédécent*
-- **&rarr;** (initialisation,, qui donne Y_0 = i_0 (initial) et Y_n = X_n pour n > 0
+- &rarr; (initialisation,, qui donne Y_0 = i_0 (initial) et Y_n = X_n pour n > 0
 - on fait souvent des combinaisons de pre et ->, qu'on appelle FBY (Followed 
-By). FBY(x,n,init) = init &rarr; (Pre(Pre...x)) *[n fois]*
+By).  
+FBY(x,n,init) = init &rarr; (Pre(Pre...x)) *[n fois]*
 - **&#9203;** (times) : la sortie est vraie si depuis le début, l'entrée a été vraie
  un nombre de fois au moins égal au nombre spécifié
   
@@ -81,7 +82,7 @@ s = x -> v
 Si le diagramme est bien (causal), alors pour chaque entrée on résout facilement 
 les équations, et la sortie est bien définie.  
   
-**Règle de causalité : chaque boucle doit contenir *PRE* ou *->* **.  
+**Règle de causalité : chaque boucle doit contenir *PRE* ou *->***.  
   
 **Théorème** : chaque diagramme SCADE bien typé, où toutes les variables sont 
 initialisées et où toutes les boucles sont causales, est correct, son 

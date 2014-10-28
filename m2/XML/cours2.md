@@ -53,7 +53,7 @@ rapport au système d'exploitation. Ces combinaisons sont :
 - U+0D (non suivi de U+0A ou U+85)
 - U+2028 (line separator)
 
-On déconseille l'usage de U+85 et U+2028 dans l'enête car ils ne peuvent être 
+On déconseille l'usage de U+85 et U+2028 dans l'entête car ils ne peuvent être 
 correctement décodés qu'après déclaration de l'encodage. 
 
 ### Jetons et noms XML 

@@ -61,7 +61,7 @@ correctement décodés qu'après déclaration de l'encodage.
 Ce sont des identificateurs, qui peuvent contenir tous les caractères 
 alphanumériques : [a-z], [A-Z], [0-9], - (U+2D), . (U+2E), : (U+3A), _ (U+5F).  
 Un **jeton** est une suite quelconque de caractères. Un **nom XML** est un 
-jeton qui commence par une lettre, : ou _ (donc pas de chiffre, - ou :). A 
+jeton qui commence par une lettre, : ou _ (donc pas de chiffre, - ou .). A 
 priori leur taille n'est pas limitée mais les logiciels peuvent en imposer 
 une.  
 Le caractère ':' est réservé aux *espaces de noms*, il sépare le préfixe du 

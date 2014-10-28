@@ -76,10 +76,10 @@ i<sub>t</sub>, o<sub>t</sub>, P<sub>t</sub>, A<sub>t</sub>) où
 ### Test par détermination de la valeur 
 
 On détermine la valeur d'une variable par rapport à la trace detéctée. 
-L'algorithme a deux phases [p21] : 
+L'algorithme a deux phases : 
 
-- "homing" : on explore la trace jusqu'à ce qu'un seul état reste
-[pour découvrir la valeur des variables.]
+- "homing" : on explore la trace jusqu'à ce qu'un seul état reste, pour découvrir 
+la valeur des variables.
 - détection : on trouve les erreurs en explorant la trace soit jusqu'à la fin, soit 
 quand on voit une erreur. 
 

@@ -46,7 +46,7 @@ Soit X = {x1, ..., xn} l'ensemble des variables du programme.
 Si on considère la boucle ```while C do S```, on pose &Phi; comme l'invariant 
 de la boucle,  
 soit &forall;&mu;,&mu;'.(&mu;&#8872;&Phi;&and;C and 
-&mu;&rarr;<sup>s</sup>&mu;') &rArr; &rho;(&mu;)&#8826;&rho;&mu;'  
+&mu;&rarr;<sup>s</sup>&mu;') &rArr; &rho;(&mu;)&#8826;&rho;(&mu;')  
 &rho;:D<sup>n</sup>&rarr;E est la fonction de rang de la boucle, telle que 
 &forall;&mu;,&mu;'.(&mu;&#8872;&Phi;&and;C and 
 &mu;&rarr;<sup>s</sup>&mu;') 

@@ -50,7 +50,7 @@ rapport au système d'exploitation. Ces combinaisons sont :
 - U+85 (next line)
 - U+0D puis U+0A
 - U+0D puis U+85
-- U+0D (non suivi de U+01 ou U+85)
+- U+0D (non suivi de U+0A ou U+85)
 - U+2028 (line separator)
 
 On déconseille l'usage de U+85 et U+2028 dans l'enête car ils ne peuvent être 

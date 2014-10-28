@@ -34,5 +34,5 @@ MathML, WSDL, OpenStreetMap, SAML, UBL, OpenDocument (LibreOffice), DocBook...
 
 C'est un format d'écriture de documents techniques, adapté spécialement à la 
 documentation de logiciels (KDE).  
-Le texte est réparti entre plsuieurs fichiers XML, qui sont convertis avec 
+Le texte est réparti entre plusieurs fichiers XML, qui sont convertis avec 
 XSLT en LaTeX pour avoir une mise en page, puis produits en PDF.  

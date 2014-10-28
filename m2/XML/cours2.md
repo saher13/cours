@@ -67,7 +67,7 @@ une.
 Le caractère ':' est réservé aux *espaces de noms*, il sépare le préfixe du 
 nom local. Si il est présent, c'est un **nom qualifié**, sinon c'est un nom non 
 qualifié.  
-Les noms commencçant par [xX][mM][lL] sont réservés aux usages internes de XML. 
+Les noms commençant par [xX][mM][lL] sont réservés aux usages internes de XML. 
 Ils ne peuvent pas être utilisés librement mais peuvent apparaitre pour des 
 utilisations spécifiques prévues par la norme. Les noms commençant par *xml:* 
 font partie de l'espace de noms XML.  

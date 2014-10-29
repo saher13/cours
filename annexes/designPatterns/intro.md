@@ -1,8 +1,20 @@
 # Design patterns : modèles de conception 
 
+## Définition
+
+Concevoir un logiciel objet c'est bien. Mais concevoir un logiel objets 
+**réutilisable**, c'est mieux ! Une conception doit être spécifique au problème 
+à résoudre, mais aussi assez générale pour répondre aux problèmes et 
+exigences futures.  
+Les concepteurs expérimentés ne résolvent pas un problème en partant des 
+mécanismes de base, mais réutilisent des solutions qui ont fait leurs preuves : 
+les **modèles de conception**. 
+
 ## Règles à suivre 
 
-Il faut programmer pour une interface, et non pour un développement.  
+On doit protéger son code en l'encapsulant le plus possible.   
+Il faut programmer pour une interface, et non pour un développement. En fait, 
+l'abstraction est la clé d'une conception souple et réutilisable.  
 Il faut préférer la composition d'objets à l'héritage de classes. 
 On cherche à déléguer le plus possible : une classe doit, de préférance, ne faire 
 qu'une seule chose. 

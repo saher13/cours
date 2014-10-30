@@ -64,7 +64,7 @@ qu'on respecte les types.
 - on fait souvent des combinaisons de pre et ->, qu'on appelle FBY (Followed 
 By).  
 FBY(x,n,init) = init &rarr; (Pre(Pre...x)) *[n fois]*
-- **&#9203;** (times) : la sortie est vraie si depuis le début, l'entrée a été vraie
+- **&#10710;** (times) : la sortie est vraie si depuis le début, l'entrée a été vraie
  un nombre de fois au moins égal au nombre spécifié
   
 Les *boucles* sont autorisées, car on a besoin d'un peu de mémoire (1 retard + 

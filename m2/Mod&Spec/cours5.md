@@ -1,6 +1,4 @@
-# Modélisation & Spécification - Cours 5 : Modèles
-
-## Réseaux de Petri
+# Modélisation & Spécification - Cours 5 : Réseaux de Petri
 
 On veut mettre en parallèle des réseaux. On met des jetons dans les états.
 Pour faire une action synchronisée, il faut que les états possèdent au moins 1

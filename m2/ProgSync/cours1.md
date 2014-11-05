@@ -46,8 +46,8 @@ Le principe : il y a une horloge globale, entre chaque tick, il y a lecture
 des entrées, calcul, et écriture des sorties.  
 Pour que ça marche il faut respecter l'hypothèse synchrone : 
 **lire-calculer-écrire prend le temps 0** 
-ou **on finit lire-calculer-écrire avant le tick suivant**. 
-|tick|L|C|E|tick|L|C|E|tick|...
+ou **on finit lire-calculer-écrire avant le tick suivant**.  
+``|tick|L|C|E|tick|L|C|E|tick|...````
   
 Le langage SCADE a 2 styles : la base par flot de données, ou par automates. 
 Ces 2 styles se combinent. 
@@ -59,11 +59,12 @@ On peut faire nos propres opérateurs en combinant les opérateurs de base, tant
 qu'on respecte les types.  
   
 3 opérateurs temporels importants (cf schemas) : 
-- **pre** (précédent), qui donne Y_n = X_(n-1), la valeur au *tick prédécent*
+
+- **PRE** (précédent), qui donne Y_n = X_(n-1), la valeur au *tick prédécent*
 - &rarr; (initialisation,, qui donne Y_0 = i_0 (initial) et Y_n = X_n pour n > 0
-- on fait souvent des combinaisons de pre et ->, qu'on appelle FBY (Followed 
+- on fait souvent des combinaisons de PRE et &rarr;, qu'on appelle FBY (Followed 
 By).  
-FBY(x,n,init) = init &rarr; (Pre(Pre...x)) *[n fois]*
+FBY(x,n,init) = init &rarr; (PRE(PRE...x)) *[n fois]*
 - **&#10710;** (times) : la sortie est vraie si depuis le début, l'entrée a été vraie
  un nombre de fois au moins égal au nombre spécifié
   
@@ -82,7 +83,7 @@ s = x -> v
 Si le diagramme est bien (causal), alors pour chaque entrée on résout facilement 
 les équations, et la sortie est bien définie.  
   
-**Règle de causalité : chaque boucle doit contenir *PRE* ou *->***.  
+**Règle de causalité : chaque boucle doit contenir *PRE* ou *&rarr;*.**  
   
 **Théorème** : chaque diagramme SCADE bien typé, où toutes les variables sont 
 initialisées et où toutes les boucles sont causales, est correct, son 
@@ -90,4 +91,3 @@ comportement est bien défini.
 
 **Principe de modularité** : on peut utiliser des opérateurs personnalisés dans 
 d'autres opérateurs. 
-  

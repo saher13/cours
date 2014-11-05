@@ -87,7 +87,7 @@ comme l'exploration *on-the-fly* ou les abstractions.
 ### SAT
 
 On note *Sat(&Phi;)* l'ensemble des états qui satisfont &Phi;.  
-S&subeq;Q, *Pre(S)* est l'ensemble des prédécesseurs immédiats de S.  
+S&sube;Q, *Pre(S)* est l'ensemble des prédécesseurs immédiats de S.  
 
 - Sat(&not;&Psi;) = Q\Sat(&Psi;)
 - Sat(&Psi;<sub>1</sub>&and;&Psi;<sub>2</sub>) 

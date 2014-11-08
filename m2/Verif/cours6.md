@@ -68,8 +68,6 @@ Soit un modèle M et une formule LTL Φ :
 
 Σ<sub>M</sub> &sube; Σ<sub>Φ</sub>
 
-[à compléter]
-
 Soit un modèle M et une formule LTL Φ :
 
 - on **construit** l'automate de Büchi B<sub>¬Φ</sub>
@@ -80,7 +78,7 @@ Soit un modèle M et une formule LTL Φ :
   + le produit (qui est un automate de Büchi) **accepte** les traces de M qui
     sont aussi des traces de B<sub>¬Φ</sub>
 - on vérifie si le produit accepte toute séquence : on a trouvé un
-*contre-exemple*
+*contre-exemple*.
 
 Les séquences acceptées doivent **contenir un cycle** qui passe par **au
 moins 1 état accepteur**.  

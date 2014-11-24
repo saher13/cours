@@ -36,7 +36,7 @@ est observable via son interface, mais pas toujours contrôlable.
 On veut donc s'assurer qu'un système satisfait bien certaines **propriétés**, 
 exprimées soit en langage naturel, soit dans un langage logique, et sont un 
 ensemble de comportements attendus ou interdits.  
-**modèle du système &8872; propriété du système**
+**modèle du système &#8872; propriété du système**
 Le model-checking est de complexité linéaire, mais il peut être difficile d'exprimer 
 certaines propriétés (malgré des techniques avancées qui peut résoudre ce 
 problème). 
@@ -124,7 +124,7 @@ On recherche une implémentation efficace :
 
 - pour représenter *Sat(f)* avec *f* atomique
 - pour calculer *Pre(S)* depuis *S*
-- pour calculer &cap;, &cup, \
+- pour calculer &cap;, &cup;, \
 - pour l'égalité des ensembles
 
 ### BDD : Binary Decision Diagrams

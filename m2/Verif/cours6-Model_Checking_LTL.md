@@ -168,7 +168,7 @@ et sa partie droite.
 
 #### Exemple
 
-![schéma p14](6_01.png)
+![schéma p14](img/cours6/6_01.png)
 
 ### Dégénéralisation
 
@@ -180,4 +180,4 @@ accepteurs de chaque ensemble accepteur.
 
 #### Exemple
 
-![dernier exemple](6_02.png)
+![dernier exemple](img/cours6/6_02.png)

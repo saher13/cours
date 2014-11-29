@@ -264,8 +264,8 @@ une fois, dans un ordre quelconque.
   </xsd:complexType>
 ```
 Cet élément ne peut pas être imbriqué avec des séquences, des choix, ou un
-autre ensemble. De plus, c'est toujours un enfant de ```xsd:complexType``` ou
-```xsd:complexContent```.  
+autre ensemble. De plus, c'est toujours un enfant de ```xsd:complexType```
+ou ```xsd:complexContent```.  
 Il possède les attributs ```minOccurs``` (qui vaut "0" ou "1"), et
 ```maxOccurs``` (qui doit valoir "1", et vaut "1" par défaut). Ces valeurs
 s'appliquent à tous les enfants.

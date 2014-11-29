@@ -30,11 +30,11 @@ Un système logiciel en temps-réel :
 - afin de superviser, commander ou communiquer avec l'environnement à tout
 moment
 
-![schéma p8](5_01.png)
+![schéma p8](img/cours5/5_01.png)
 
 ### Système distribué
 
-![schéma p9](5_02.png)
+![schéma p9](img/cours5/5_02.png)
 
 ### SDL pour les systèmes réactifs et discrets
 
@@ -50,7 +50,7 @@ et les *bases de données*.
 
 Une **MSC** décrit les échanges de messages entre composants du système, et
 l'environnement. Cela permet d'observer les interactions.  
-![schéma p14](5_03.png)
+![schéma p14](img/cours5/5_03.png)
 
 ## Spécification d'un système
 
@@ -62,11 +62,11 @@ process*
 *signals, variables input/output*
 - les opérations sur les données : *variables, signals, sorts, ASN.1*
 
-![schéma p16+p17](5_04.png)
+![schéma p16+p17](img/cours5/5_04.png)
 
 ### Exemple
 
-![schéma p18](5_05.png)
+![schéma p18](img/cours5/5_05.png)
 *Note* : Les signaux avec paramètres sont eux aussi écrits avec seulement leur
 nom. Le paramètre n'apparaitra qu'à la partie *comportement*.  
 *Note 2* : Un processus ne peut pas être au même niveau qu'un bloc dans la
@@ -75,13 +75,13 @@ hiérarchie.
 ### Channels
 
 Une **channel** peut être *unidirectionelle* ou *bi-directionnelle* :  
-![schémas 1,2 p19](5_06.png)
+![schémas 1,2 p19](img/cours5/5_06.png)
 
 ### Connexions entre blocs
 
 Les connexions **doivent** être définies : quelles canaux sont liés, et quels
 signaux y sont transmis.
-![schéma p20](5_07.png)
+![schéma p20](img/cours5/5_07.png)
 
 ### Types & opérations
 
@@ -131,18 +131,18 @@ Le processus SDL va décrire le comportement et étendre le concept de FSM :
   + déclencher des timers
 
 Les éléments d'un processus :  
-![schéma](5_08.png)
+![schéma](img/cours5/5_08.png)
 
 ### Déclarations
 
 On utilise le mot clé **dcl** pour les déclarations. Les variables se
 déclarent dans le symbole **Text** et peuvent être initialisées.  
-![schéma p28](5_09.png)  
+![schéma p28](img/cours5/5_09.png)  
 **Notes** :
 
 - Le signal "*" permet la complétude de la spécification : n'importe quel
 input.  
-- Le raccourci "-" permet de revenir à l'état précédent. 
+- Le raccourci "-" permet de revenir à l'état précédent.
 - Quand un message est reçu dans un processus qui transporte une donnée,
 celle-ci doit être mise dans une variable.
 - Sur chaque transition, il ne peut y avoir qu'**1 input** (mais plusieurs
@@ -152,18 +152,18 @@ c'est une séquence.
 
 ### Conditions
 
-![schéma p28](5_10.png)  
+![schéma p28](img/cours5/5_10.png)  
 
 La condition doit considérer les vecteurs de variables de l'état d'avant, peu
 importent les signaux recus. Les signaux ne sont consommés que si la condition
 est vraie. Sinon ils sont sauvés (gardés à l'état suivant).
 
 Les décisions :  
-![schéma p28](5_11.png)  
+![schéma p28](img/cours5/5_11.png)  
 
 ### Le temps
 
-![schéma p28](5_12.png)  
+![schéma p28](img/cours5/5_12.png)  
 
 Il n'y a pas d'unité de temps dans les spécifications. Il faudra
 faire *SET/RESET* à la main.  

@@ -92,7 +92,7 @@ DURATION (=REAL), PID*.
 - tous les types peuvent être comparés avec *=* et */=*.
 - les nombres (*INTEGER, NATURAL, REAL*) disposent des opérations -, +, *, /,
 <, >, <=, >=
-- les nombres entierset naturels disposent en plus de *Float, Mod, Rem*
+- les nombres entiers et naturels disposent en plus de *Float, Mod, Rem*
 - les nombres réels disposent en plus de *Fix*
 
 #### Constantes

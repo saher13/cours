@@ -8,13 +8,13 @@ transforment en autre chose (via *map*, *actcard*...).
 La différence avec un simple *IF*, c'est que le code d'une seule branche est
 exécuté (les deux le sont avec *IF*).  
 
-![schéma p47](2_01.png)
+![schéma p47](img/cours2/2_01.png)
 
 ### When-Block
 
 Un **When-Block** est un équivalent à un switch.  
 
-![schéma p48](2_02.png)
+![schéma p48](img/cours2/2_02.png)
 
 ### Condition d'activation
 
@@ -24,13 +24,13 @@ Si la condition est vraie, le bloc est activé. Sinon, le bloc ne fonctionne
 plus et les sorties précédentes sont utilisées (ou des valeurs par défaut).  
 Avant la 1<sup>ère</sup> utilisation, il y a des valeurs initiales.
 
-![schéma p48](2_03.png)
+![schéma p48](img/cours2/2_03.png)
 
 #### Restart
 
 Si la condition est vraie, la mémoire interne est remise à zéro.  
 
-![schéma p48](2_04.png)
+![schéma p48](img/cours2/2_04.png)
 
 ## Validation
 

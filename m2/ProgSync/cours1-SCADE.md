@@ -1,4 +1,4 @@
-# Programmation synchrone - Cours 1
+# Programmation synchrone - Cours 1 : SCADE
 
 ## Le contexte
 
@@ -20,14 +20,14 @@ sévères. De nombreux standards décrivent des niveaux de criticité.
 
 ## Comment développer un tel logiciel ?
 
-![schéma p16](1_01.png)
+![schéma p16](img/cours1/1_01.png)
 
 Particularité du modèle en V pour les logiciels critiques : la validation
 est très longue et couteuse, environ 50 % du cout.
 
 Model-based design : Y à la place de V.
 
-![schéma Y](1_02.png)
+![schéma Y](img/cours1/1_02.png)
 
 On fera le modèle en Y. Il nous faut un langage de programmation ergonomique,
 avec une sémantique formelle bien définie (pour assurer la cohérence, la

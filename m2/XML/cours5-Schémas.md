@@ -352,3 +352,60 @@ Contre-exemple (*item1* peut provenir de deux chemins) :
     </xsd:complexType>
   </xsd:element>
 ```
+
+## Déclarer des attributs
+
+La déclaration d'un **attribut** est comme celle d'un élément sauf qu'on
+utilise ```xsd:attribute```. Le type doit forcément être un type simple (car
+un attribut ne peut contenir que du texte).  
+```<xsd:attribute name="format" type="xsd:string"/>```  
+On déclare les attributs dans la définition d'un type (**complexe
+uniquement**). On peut aussi faire des attributs *globaux* en les plaçant
+comme enfants de ```xsd:schema```. Ils peuvent alors être ajoutés à différents
+types complexes avec un attribut ```ref``` qui doit avoir comme valeur le nom
+de l'attribut global à ajouter.  
+
+L'attribut ```use``` change les contraintes de présence : ```optional``` (par
+défaut), ```required, prohibited```.  
+La valeur par défaut est donnée par les attributs ```default``` ou ```fixed```.
+
+```xsd:anyAttribute``` fonctionne de manière similaire à ```xsd:any```.
+
+## Extension de types
+
+L'**extension** donne toujours un type complexe. Elle est introduite par
+l'élément ```xsd:extension``` qui possède un attribut ```base``` dont la
+valeur est le nom du type de base.  
+
+Quand on étend un type simple ou un type complexe à contenu simple, on ne
+peut que rajouter des attributs :  
+```
+xsd:complexType name="Price">
+  <xsd:simpleContent>
+    <xsd:extension base="xsd:decimal">
+      <!-- Attribut ajouté -->
+      <xsd:attribute name="currency" type="xsd:string"/>
+    </xsd:extension>
+  </xsd:simpleContent>
+</xsd:complexType>
+<xsd:element name="price" type="Price"/>
+```
+En étendant un type complexe à contenu complexe, on peut aussi ajouter du
+contenu :  
+```
+ <!-- Type de base -->
+  <xsd:complexType name="Name">
+    ...
+  </xsd:complexType>
+  <!-- Extension du type de base -->
+  <xsd:complexType name="Fullname">
+    <xsd:complexContent>
+      <xsd:extension base="Name">
+        <xsd:sequence> <!-- ajouté après le contenu déjà présent -->
+          <xsd:element name="title" type="xsd:string"/>
+        </xsd:sequence>
+        <xsd:attribute name="id" type="xsd:ID"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+```

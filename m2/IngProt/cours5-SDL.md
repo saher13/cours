@@ -66,7 +66,7 @@ process*
 
 ### Exemple
 
-![schéma p18](img/cours5/5_05.png)
+![schéma p18](img/cours5/5_05.png)  
 *Note* : Les signaux avec paramètres sont eux aussi écrits avec seulement leur
 nom. Le paramètre n'apparaitra qu'à la partie *comportement*.  
 *Note 2* : Un processus ne peut pas être au même niveau qu'un bloc dans la

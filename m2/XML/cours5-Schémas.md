@@ -409,3 +409,50 @@ contenu :
     </xsd:complexContent>
   </xsd:complexType>
 ```
+
+## Restriction 
+
+La **restriction** s'introduit avec l'élément ```xsd:restriction```, qui possède un attribut ```base``` qui doit prendre le nom du type de base. On utilise ensuite des *facettes*.  
+
+### Restriction par intervalle 
+
+```
+<xsd:element name="year"> 
+  <xsd:simpleType>
+    <xsd:restriction base="xsd:integer">
+      <xsd:minInclusive value="1970"/>
+      <xsd:maxInclusive value="2050"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+</xsd:element>
+```
+
+### Restriction par énumération 
+
+```
+<xsd:element name="language" type="Language"/> 
+<xsd:simpleType name="Language">
+  <xsd:restriction base="xsd:language">
+    <xsd:enumeration value="de"/>
+    <xsd:enumeration value="en"/>
+    <xsd:enumeration value="fr"/>
+  </xsd:restriction>
+</xsd:simpleType>
+```
+
+### Restriction par motif 
+
+```
+<xsd:simpleType name="Identifier">
+  <xsd:restriction base="xsd:string">
+    <xsd:pattern value="[:_A-Za-z][-.:_0-9A-Za-z]*"/>
+  </xsd:restriction>
+</xsd:simpleType>
+```
+Pour avoir une expression qui accepte éventuellement un fragment du contenu, il suffit d'ajouter ```.*``` au début et à la fin de celle-ci. Le contenu *abc123xyz* est, par exemple, conforme à l'expression ```.*\d{3}.*```.
+
+### Autres facettes 
+
+- longueur : ```xsd:length, xsd:minLength``` et ```xsd:maxLength```
+- digits : ```xsd:fractionDigits``` et ```xsd:totalDigits```
+- espacement : ```xsd:whiteSpace``` modifie le traitement des espaces, selon sa valeur (```preserve, replace, collapse```)

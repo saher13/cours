@@ -414,7 +414,9 @@ contenu :
 
 La **restriction** s'introduit avec l'élément ```xsd:restriction```, qui possède un attribut ```base``` qui doit prendre le nom du type de base. On utilise ensuite des *facettes*.  
 
-### Restriction par intervalle 
+### Types simples 
+
+#### Restriction par intervalle 
 
 ```
 <xsd:element name="year"> 
@@ -427,7 +429,7 @@ La **restriction** s'introduit avec l'élément ```xsd:restriction```, qui poss�
 </xsd:element>
 ```
 
-### Restriction par énumération 
+#### Restriction par énumération 
 
 ```
 <xsd:element name="language" type="Language"/> 
@@ -440,7 +442,7 @@ La **restriction** s'introduit avec l'élément ```xsd:restriction```, qui poss�
 </xsd:simpleType>
 ```
 
-### Restriction par motif 
+#### Restriction par motif 
 
 ```
 <xsd:simpleType name="Identifier">
@@ -451,7 +453,7 @@ La **restriction** s'introduit avec l'élément ```xsd:restriction```, qui poss�
 ```
 Pour avoir une expression qui accepte éventuellement un fragment du contenu, il suffit d'ajouter ```.*``` au début et à la fin de celle-ci. Le contenu *abc123xyz* est, par exemple, conforme à l'expression ```.*\d{3}.*```.
 
-### Autres facettes 
+#### Autres facettes 
 
 - longueur : ```xsd:length, xsd:minLength``` et ```xsd:maxLength```
 - digits : ```xsd:fractionDigits``` et ```xsd:totalDigits```

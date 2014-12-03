@@ -167,3 +167,65 @@ Les décisions :
 
 Il n'y a pas d'unité de temps dans les spécifications. Il faudra
 faire *SET/RESET* à la main.  
+
+### Variables distantes
+
+On peut connaître la valeur de la variable d'un autre processus. DSL fait des
+signaux implicites.  
+![schéma p4slide2](img/cours5/5_13.png)
+
+### Structures
+
+```
+NEWTYPE Product
+STRUCT
+    ref CHARSTRING;
+    price REAL;
+    quantity INTEGER;
+ENDNEWTYPE Product;
+```
+Bien sûr, le type des champs peut être une autre structure.  
+Pour assigner : ```prod := (. <ref>,<price>,<quantity> .)```.  
+Pour accéder : ```prod!price := 20.0```.  
+
+Pour faire des tableaux :  
+```
+NEWTYPE Int_T
+  ARRAY (Index_T, INTEGER);
+ENDNEWTYPE
+```
+Ici, *Index_T=INTEGER*.  
+
+Pour initialiser avec l'élément par défaut : ```tab := (. 0 .)```.  
+Pour affecter/accéder : ```tab(1) := 2``` et ```x := tab(2)```.  
+
+### Process type
+
+On veut gérer plusieurs instances d'un même type de processus, avec chacun ses
+objets actifs, ses actions, et données.  
+On va mettre dans un package (importé avec ```USE```) une définition UML :  
+![schéma p8(slides2)](img/cours5/5_14.png)  
+Puis on pourra faire la définition du processus.  
+
+Pour représenter l'ensemble des processus :  
+![schéma perso](img/cours5/5_15.png)  
+Il ne faut pas oublier de **définir les portes** au bord du bloc d'instances.
+Ce sont les *gates* via lesquelles les messages transitent.  
+
+### Processus dynamiques
+
+On peut créer dynamiquement des processus, qui vont avoir leur propre *PID*.  
+![schémas slide2:p17,18,19](img/cours5/5_16.png)  
+
+Pour identifer les *PID* : *NULL, SELF, OFFSPRING, PARENT, SENDER*.  
+Grâce aux *PID* et aux canaux, on peut envoyer précisément un message :
+```<SIGNAL> TO <processus:nom ou PID> VIA <canal ou porte ou ALL>```
+
+### Procédures
+
+On peut factoriser des instructions :  
+![schéma slide2:p27](img/cours5/5_17.png)  
+*IN* : par valeur (défaut), *IN/OUT* : par référence.  
+Les procédures peuvent aussi retourner des valeurs, en
+déclarant ````RETURNS r INTEGER```. On utilise dans un bloc d'instruction du
+type ```x:= 5 * CALL <Procedure(x)>```

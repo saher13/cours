@@ -410,16 +410,19 @@ contenu :
   </xsd:complexType>
 ```
 
-## Restriction 
+## Restriction
 
-La **restriction** s'introduit avec l'élément ```xsd:restriction```, qui possède un attribut ```base``` qui doit prendre le nom du type de base. On utilise ensuite des *facettes*.  
+La **restriction** s'introduit avec l'élément ```xsd:restriction```, qui
+possède un attribut ```base``` qui doit prendre le nom du type de base.
 
-### Types simples 
+### Types simples
 
-#### Restriction par intervalle 
+On utilise des *facettes*.  
+
+#### Restriction par intervalle
 
 ```
-<xsd:element name="year"> 
+<xsd:element name="year">
   <xsd:simpleType>
     <xsd:restriction base="xsd:integer">
       <xsd:minInclusive value="1970"/>
@@ -429,10 +432,10 @@ La **restriction** s'introduit avec l'élément ```xsd:restriction```, qui poss�
 </xsd:element>
 ```
 
-#### Restriction par énumération 
+#### Restriction par énumération
 
 ```
-<xsd:element name="language" type="Language"/> 
+<xsd:element name="language" type="Language"/>
 <xsd:simpleType name="Language">
   <xsd:restriction base="xsd:language">
     <xsd:enumeration value="de"/>
@@ -442,7 +445,7 @@ La **restriction** s'introduit avec l'élément ```xsd:restriction```, qui poss�
 </xsd:simpleType>
 ```
 
-#### Restriction par motif 
+#### Restriction par motif
 
 ```
 <xsd:simpleType name="Identifier">
@@ -451,10 +454,138 @@ La **restriction** s'introduit avec l'élément ```xsd:restriction```, qui poss�
   </xsd:restriction>
 </xsd:simpleType>
 ```
-Pour avoir une expression qui accepte éventuellement un fragment du contenu, il suffit d'ajouter ```.*``` au début et à la fin de celle-ci. Le contenu *abc123xyz* est, par exemple, conforme à l'expression ```.*\d{3}.*```.
+Pour avoir une expression qui accepte éventuellement un fragment du contenu,
+il suffit d'ajouter ```.*``` au début et à la fin de celle-ci. Le contenu
+*abc123xyz* est, par exemple, conforme à l'expression ```.*\d{3}.*```.
 
-#### Autres facettes 
+#### Autres facettes
 
 - longueur : ```xsd:length, xsd:minLength``` et ```xsd:maxLength```
 - digits : ```xsd:fractionDigits``` et ```xsd:totalDigits```
-- espacement : ```xsd:whiteSpace``` modifie le traitement des espaces, selon sa valeur (```preserve, replace, collapse```)
+- espacement : ```xsd:whiteSpace``` modifie le traitement des espaces, selon
+sa valeur (```preserve, replace, collapse```)
+
+### Types complexes à contenu simple
+
+Il est possible de remplacer le type de contenu, et même le type d'un attribut,
+si le nouveau type est dérivé du type initial.
+Un attribut optionnel peut être rendu obligatoire ou interdit (pas le
+contraire).
+```
+ <!-- Type de base -->
+  <xsd:complexType name="Base">
+    <xsd:simpleContent>
+      <xsd:extension base="xsd:string">
+        <xsd:attribute name="decimal"   type="xsd:decimal"/>
+        <xsd:attribute name="unchanged" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:simpleContent>
+  </xsd:complexType>
+  <xsd:complexType name="Derived">
+    <xsd:simpleContent>
+      <xsd:restriction base="Base">
+        <xsd:simpleType>
+          <!-- Nouveau type pour le contenu du type Derived -->
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="32"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+        <!-- Restriction du type de l'attribut -->
+        <xsd:attribute name="decimal"  type="xsd:integer"/>
+        <!-- Attribut unchanged inchangé -->
+      </xsd:restriction>
+    </xsd:simpleContent>
+  </xsd:complexType>
+```
+
+### Types complexes à contenu complexe
+
+On peut aussi y changer le nombre d'occurences d'un élément ou d'un bloc. Le
+contenu est écrit comme une première définition : ce qui est nouveau est
+ajouté, ce qui "oublié" est supprimé.
+```
+ <!-- Type de base -->
+  <xsd:complexType name="Name">
+    <xsd:sequence>
+      <!-- Nombre illimité d'occurrences de l'élément firstname -->
+      <xsd:element name="firstname" type="xsd:string" maxOccurs="unbounded"/>
+      <xsd:element name="lastname"  type="xsd:string"/>
+    </xsd:sequence>
+    <xsd:attribute name="id" type="xsd:ID"/>
+  </xsd:complexType>
+  <!-- Restriction du type Name -->
+  <xsd:complexType name="Shortname">
+    <xsd:complexContent>
+      <xsd:restriction base="Name">
+        <xsd:sequence>
+          <!-- Nombre limité d'occurrences de l'élément firstname -->
+          <xsd:element name="firstname" type="xsd:string" maxOccurs="1"/>
+          <xsd:element name="lastname"  type="xsd:string"/>
+        </xsd:sequence>
+        <!-- Attribut id obligatoire -->
+        <xsd:attribute name="id" type="xsd:ID" use="required"/>
+      </xsd:restriction>
+    </xsd:complexContent>
+  </xsd:complexType>
+```
+
+## Substitutions
+
+## Groupes
+
+### Groupes d'éléments
+
+```
+<xsd:group name="FirstLast">
+    <xsd:sequence>
+      <xsd:element name="firstname" type="xsd:string"/>
+      <xsd:element name="lastname"  type="xsd:string"/>
+    </xsd:sequence>
+</xsd:group>
+...
+<xsd:group ref="Name" />
+```
+
+### Groupes d'attributs
+
+```
+<xsd:attributeGroup name="LangType">
+  <xsd:attribute name="lang" type="xsd:language"/>
+  <xsd:attribute name="type" type="xsd:string"/>
+</xsd:attributeGroup>
+```
+
+## Contraintes de cohérence
+
+### Contraintes d'unicité
+
+Il ne peut exister qu'un seul élément ayant une propriété fixée. Elle est
+introduite par ```xsd:key``` (tous les champs doivent être présents)
+ou ```xsd:unique```, qui ont un attribut ```name``` utilisé
+par ```xsd:keyref```.  
+Le contenu est composé de ```xsd:selection``` (sur quels éléments porte la
+contrainte) et ```xsd:field``` (les valeurs qui doivent être unique) qui possède
+un attribut ```xpath``` (une expression XPath).  
+```
+<xsd:key name="person.names">
+  <xsd:selector xpath="person"/>
+  <xsd:field    xpath="firstname"/>
+  <xsd:field    xpath="lastname"/>
+</xsd:key>
+```
+La portée se limite à l'élément courant et ses enfants.
+
+### Contraintes d'existence
+
+```
+<!-- Unicité des attributs id des éléments chapter -->
+    <xsd:key name="idchapter">
+      <xsd:selector xpath="chapter"/>
+      <xsd:field    xpath="@id"/>
+    </xsd:key>
+<!-- Existence des références idref des éléments ref -->
+    <xsd:keyref name="idref" refer="idchapter">
+      <xsd:selector xpath=".//ref"/>
+      <xsd:field    xpath="@idref"/>
+    </xsd:keyref>
+```
